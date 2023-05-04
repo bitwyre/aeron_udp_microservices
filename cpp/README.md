@@ -4,7 +4,7 @@ Aeron UDP microservices
 
 ### Run Java Media Driver Process
 ```
-java -cp externel/aeron/aeron-all/build/libs/aeron-all-1.42.0-SNAPSHOT.jar:. RunMediaDriver
+java -cp external/aeron/aeron-all/build/libs/aeron-all-1.42.0-SNAPSHOT.jar:. RunMediaDriver
 ```
 
 ### Build and run Publisher
