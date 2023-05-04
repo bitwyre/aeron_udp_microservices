@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+d06c8cd71adf9056350a103c7e3f3aef ../external/aeron/aeron-all/build/libs/aeron-all-1.42.0-SNAPSHOT.jar
+54bd75a27256842c1c7df113df556b74 external/aeron/CMakeFiles/aeron-all-jar
+6418d600732719d7bbe6de72a677194b external/aeron/aeron-archive/src/main/cpp/CMakeFiles/codecs
+8cc70cb8313676c81f3415ff7a24edd4 external/aeron/generated/aeron_archive_client/BoundedReplayRequest.h
