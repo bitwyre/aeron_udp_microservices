@@ -1,0 +1,17 @@
+[package]
+name = "my-aeron-program"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+tokio = { version = "1.16.1", features = ["full"] }
+aeron-rs = "0.1.3"
+flatbuffers = "23.1.21"
+
+[[bin]]
+name = "consumer"
+path = "./src/rustconsumer.rs"
+
+[[bin]]
+name = "producer"
+path = "./src/rustproducer.rs"

@@ -1,0 +1,6 @@
+table Message {
+  id: uint64;
+  text: string;
+}
+
+root_type Message;
