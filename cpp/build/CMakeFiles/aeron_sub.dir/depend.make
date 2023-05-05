@@ -76,6 +76,6 @@ CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../external/aeron/aero
 CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../external/aeron/aeron-client/src/main/cpp/util/Platform.h
 CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../external/aeron/aeron-client/src/main/cpp/util/ScopeUtils.h
 CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../external/aeron/aeron-client/src/main/cpp/util/StringUtil.h
-CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../include/Configuration.hpp
+CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../include/AeronConf.hpp
 CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../src/aeron/BasicSubscriber.cpp
 

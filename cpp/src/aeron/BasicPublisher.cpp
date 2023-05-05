@@ -6,7 +6,7 @@
 #include <cinttypes>
 
 #include "util/CommandOptionParser.h"
-#include "Configuration.hpp"
+#include "AeronConf.hpp"
 #include "Aeron.h"
 
 using namespace aeron::util;

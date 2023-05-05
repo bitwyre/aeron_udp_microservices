@@ -736,7 +736,7 @@ cstdarg
 util/Exceptions.h
 ../external/aeron/aeron-client/src/main/cpp/util/util/Exceptions.h
 
-../include/Configuration.hpp
+../include/AeronConf.hpp
 string
 -
 cstdint
@@ -749,8 +749,8 @@ thread
 -
 csignal
 -
-Configuration.hpp
-/mnt/d/aeron_udp_service/cpp/src/aeron/Configuration.hpp
+AeronConf.hpp
+/mnt/d/aeron_udp_service/cpp/src/aeron/AeronConf.hpp
 util/CommandOptionParser.h
 /mnt/d/aeron_udp_service/cpp/src/aeron/util/CommandOptionParser.h
 Aeron.h

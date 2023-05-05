@@ -2,7 +2,7 @@
 #include <thread>
 #include <csignal>
 
-#include "Configuration.hpp"
+#include "AeronConf.hpp"
 #include "util/CommandOptionParser.h"
 #include "Aeron.h"
 #include "FragmentAssembler.h"

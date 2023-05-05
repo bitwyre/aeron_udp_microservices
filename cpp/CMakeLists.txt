@@ -19,3 +19,5 @@ target_link_libraries(aeron_sub PUBLIC aeron_client)
 
 target_include_directories(aeron_pub PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(aeron_sub PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(kafka_cons PUBLIC ${PROJECT_SOURCE_DIR}/include)
+

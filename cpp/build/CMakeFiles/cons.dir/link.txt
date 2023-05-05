@@ -1,1 +1,0 @@
-/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o  -o cons  -Wl,-rpath,/usr/local/lib /usr/local/lib/libcppkafka.so.0.4.0 external/aeron/lib/libaeron_client.a /usr/local/lib/librdkafka.so -lpthread -lrt -lssl -lcrypto -ldl -lz -lpthread 

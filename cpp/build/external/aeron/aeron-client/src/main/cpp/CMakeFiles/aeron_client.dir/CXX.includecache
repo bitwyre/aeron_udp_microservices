@@ -132,36 +132,6 @@ util/Exceptions.h
 intrin.h
 -
 
-../external/aeron/aeron-client/src/main/cpp/util/CommandOption.h
-iostream
--
-exception
--
-string
--
-vector
--
-map
--
-util/Exceptions.h
-../external/aeron/aeron-client/src/main/cpp/util/util/Exceptions.h
-util/Export.h
-../external/aeron/aeron-client/src/main/cpp/util/util/Export.h
-
-../external/aeron/aeron-client/src/main/cpp/util/CommandOptionParser.h
-string
--
-vector
--
-map
--
-iostream
--
-util/CommandOption.h
-../external/aeron/aeron-client/src/main/cpp/util/util/CommandOption.h
-util/Export.h
-../external/aeron/aeron-client/src/main/cpp/util/util/Export.h
-
 ../external/aeron/aeron-client/src/main/cpp/util/Exceptions.h
 cstdint
 -
@@ -173,10 +143,6 @@ functional
 -
 util/MacroUtil.h
 ../external/aeron/aeron-client/src/main/cpp/util/util/MacroUtil.h
-
-../external/aeron/aeron-client/src/main/cpp/util/Export.h
-util/Platform.h
-../external/aeron/aeron-client/src/main/cpp/util/util/Platform.h
 
 ../external/aeron/aeron-client/src/main/cpp/util/Index.h
 cstddef
@@ -190,23 +156,7 @@ limits
 string
 -
 
-../external/aeron/aeron-client/src/main/cpp/util/MemoryMappedFile.h
-cstdint
--
-memory
--
-util/Export.h
-../external/aeron/aeron-client/src/main/cpp/util/util/Export.h
-cstddef
--
-sys/types.h
--
-
 ../external/aeron/aeron-client/src/main/cpp/util/Platform.h
-
-../external/aeron/aeron-client/src/main/cpp/util/ScopeUtils.h
-memory
--
 
 ../external/aeron/aeron-client/src/main/cpp/util/StringUtil.h
 string
@@ -425,10 +375,6 @@ concurrent/logbuffer/TermBlockScanner.h
 /mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/concurrent/logbuffer/TermBlockScanner.h
 concurrent/status/UnsafeBufferPosition.h
 /mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/concurrent/status/UnsafeBufferPosition.h
-LogBuffers.h
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/LogBuffers.h
-
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/LogBuffers.cpp
 LogBuffers.h
 /mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/LogBuffers.h
 
@@ -804,16 +750,6 @@ concurrent/CountersManager.h
 concurrent/status/Position.h
 /mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/concurrent/status/concurrent/status/Position.h
 
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/CommandOption.cpp
-util/CommandOptionParser.h
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/util/CommandOptionParser.h
-util/StringUtil.h
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/util/StringUtil.h
-
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/CommandOptionParser.cpp
-util/CommandOptionParser.h
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/util/CommandOptionParser.h
-
 /mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/Export.h
 util/Platform.h
 /mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/util/Platform.h
@@ -835,30 +771,6 @@ algorithm
 /mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/MacroUtil.h
 string
 -
-
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/MemoryMappedFile.cpp
-sys/mman.h
--
-sys/stat.h
--
-fcntl.h
--
-unistd.h
--
-Windows.h
--
-StringUtil.h
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/StringUtil.h
-string
--
-cstring
--
-util/MemoryMappedFile.h
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/util/MemoryMappedFile.h
-util/Exceptions.h
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/util/Exceptions.h
-util/ScopeUtils.h
-/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/util/ScopeUtils.h
 
 /mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp/util/MemoryMappedFile.h
 cstdint

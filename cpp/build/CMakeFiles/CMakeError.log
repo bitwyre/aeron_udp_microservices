@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_478db/fast && /usr/bin/make -f CMakeFiles/cmTC_478db.dir/build.make CMakeFiles/cmTC_478db.dir/build
+Run Build Command(s):/usr/bin/make cmTC_cb57c/fast && /usr/bin/make -f CMakeFiles/cmTC_cb57c.dir/build.make CMakeFiles/cmTC_cb57c.dir/build
 make[1]: Entering directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_478db.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_478db.dir/src.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_478db
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_478db.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_478db.dir/src.c.o  -o cmTC_478db 
-/usr/bin/ld: CMakeFiles/cmTC_478db.dir/src.c.o: in function `main':
+Building C object CMakeFiles/cmTC_cb57c.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_cb57c.dir/src.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_cb57c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cb57c.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_cb57c.dir/src.c.o  -o cmTC_cb57c 
+/usr/bin/ld: CMakeFiles/cmTC_cb57c.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_478db.dir/build.make:87: cmTC_478db] Error 1
+make[1]: *** [CMakeFiles/cmTC_cb57c.dir/build.make:87: cmTC_cb57c] Error 1
 make[1]: Leaving directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_478db/fast] Error 2
+make: *** [Makefile:121: cmTC_cb57c/fast] Error 2
 
 
 Source file was:
@@ -41,36 +41,36 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_f8daa/fast && /usr/bin/make -f CMakeFiles/cmTC_f8daa.dir/build.make CMakeFiles/cmTC_f8daa.dir/build
+Run Build Command(s):/usr/bin/make cmTC_abc87/fast && /usr/bin/make -f CMakeFiles/cmTC_abc87.dir/build.make CMakeFiles/cmTC_abc87.dir/build
 make[1]: Entering directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_f8daa.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f8daa.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_f8daa
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8daa.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_f8daa.dir/CheckFunctionExists.c.o  -o cmTC_f8daa  -lpthreads 
+Building C object CMakeFiles/cmTC_abc87.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_abc87.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_abc87
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_abc87.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_abc87.dir/CheckFunctionExists.c.o  -o cmTC_abc87  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_f8daa.dir/build.make:87: cmTC_f8daa] Error 1
+make[1]: *** [CMakeFiles/cmTC_abc87.dir/build.make:87: cmTC_abc87] Error 1
 make[1]: Leaving directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_f8daa/fast] Error 2
+make: *** [Makefile:121: cmTC_abc87/fast] Error 2
 
 
 
 Determining if the F_PREALLOCATE exist failed with the following output:
 Change Dir: /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_193ba/fast && /usr/bin/make -f CMakeFiles/cmTC_193ba.dir/build.make CMakeFiles/cmTC_193ba.dir/build
+Run Build Command(s):/usr/bin/make cmTC_3a232/fast && /usr/bin/make -f CMakeFiles/cmTC_3a232.dir/build.make CMakeFiles/cmTC_3a232.dir/build
 make[1]: Entering directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_193ba.dir/CheckSymbolExists.c.o
-/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_193ba.dir/CheckSymbolExists.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Building C object CMakeFiles/cmTC_3a232.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_3a232.dir/CheckSymbolExists.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘F_PREALLOCATE’ undeclared (first use in this function)
     8 |   return ((int*)(&F_PREALLOCATE))[argc];
       |                   ^~~~~~~~~~~~~
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
-make[1]: *** [CMakeFiles/cmTC_193ba.dir/build.make:66: CMakeFiles/cmTC_193ba.dir/CheckSymbolExists.c.o] Error 1
+make[1]: *** [CMakeFiles/cmTC_3a232.dir/build.make:66: CMakeFiles/cmTC_3a232.dir/CheckSymbolExists.c.o] Error 1
 make[1]: Leaving directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_193ba/fast] Error 2
+make: *** [Makefile:121: cmTC_3a232/fast] Error 2
 
 
 File /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -90,53 +90,53 @@ int main(int argc, char** argv)
 Determining if the include file bsd/stdlib.h exists failed with the following output:
 Change Dir: /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_7f5fb/fast && /usr/bin/make -f CMakeFiles/cmTC_7f5fb.dir/build.make CMakeFiles/cmTC_7f5fb.dir/build
+Run Build Command(s):/usr/bin/make cmTC_d7d57/fast && /usr/bin/make -f CMakeFiles/cmTC_d7d57.dir/build.make CMakeFiles/cmTC_d7d57.dir/build
 make[1]: Entering directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7f5fb.dir/CheckIncludeFile.c.o
-/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_7f5fb.dir/CheckIncludeFile.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Building C object CMakeFiles/cmTC_d7d57.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_d7d57.dir/CheckIncludeFile.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: bsd/stdlib.h: No such file or directory
     1 | #include <bsd/stdlib.h>
       |          ^~~~~~~~~~~~~~
 compilation terminated.
-make[1]: *** [CMakeFiles/cmTC_7f5fb.dir/build.make:66: CMakeFiles/cmTC_7f5fb.dir/CheckIncludeFile.c.o] Error 1
+make[1]: *** [CMakeFiles/cmTC_d7d57.dir/build.make:66: CMakeFiles/cmTC_d7d57.dir/CheckIncludeFile.c.o] Error 1
 make[1]: Leaving directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_7f5fb/fast] Error 2
+make: *** [Makefile:121: cmTC_d7d57/fast] Error 2
 
 
 
 Determining if the include file uuid/uuid.h exists failed with the following output:
 Change Dir: /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_33f00/fast && /usr/bin/make -f CMakeFiles/cmTC_33f00.dir/build.make CMakeFiles/cmTC_33f00.dir/build
+Run Build Command(s):/usr/bin/make cmTC_71d6f/fast && /usr/bin/make -f CMakeFiles/cmTC_71d6f.dir/build.make CMakeFiles/cmTC_71d6f.dir/build
 make[1]: Entering directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_33f00.dir/CheckIncludeFile.c.o
-/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_33f00.dir/CheckIncludeFile.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Building C object CMakeFiles/cmTC_71d6f.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_71d6f.dir/CheckIncludeFile.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: uuid/uuid.h: No such file or directory
     1 | #include <uuid/uuid.h>
       |          ^~~~~~~~~~~~~
 compilation terminated.
-make[1]: *** [CMakeFiles/cmTC_33f00.dir/build.make:66: CMakeFiles/cmTC_33f00.dir/CheckIncludeFile.c.o] Error 1
+make[1]: *** [CMakeFiles/cmTC_71d6f.dir/build.make:66: CMakeFiles/cmTC_71d6f.dir/CheckIncludeFile.c.o] Error 1
 make[1]: Leaving directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_33f00/fast] Error 2
+make: *** [Makefile:121: cmTC_71d6f/fast] Error 2
 
 
 
 Determining if the arc4random exist failed with the following output:
 Change Dir: /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_e39ad/fast && /usr/bin/make -f CMakeFiles/cmTC_e39ad.dir/build.make CMakeFiles/cmTC_e39ad.dir/build
+Run Build Command(s):/usr/bin/make cmTC_ac018/fast && /usr/bin/make -f CMakeFiles/cmTC_ac018.dir/build.make CMakeFiles/cmTC_ac018.dir/build
 make[1]: Entering directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e39ad.dir/CheckSymbolExists.c.o
-/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_e39ad.dir/CheckSymbolExists.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Building C object CMakeFiles/cmTC_ac018.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_ac018.dir/CheckSymbolExists.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random’ undeclared (first use in this function); did you mean ‘srandom’?
     8 |   return ((int*)(&arc4random))[argc];
       |                   ^~~~~~~~~~
       |                   srandom
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
-make[1]: *** [CMakeFiles/cmTC_e39ad.dir/build.make:66: CMakeFiles/cmTC_e39ad.dir/CheckSymbolExists.c.o] Error 1
+make[1]: *** [CMakeFiles/cmTC_ac018.dir/build.make:66: CMakeFiles/cmTC_ac018.dir/CheckSymbolExists.c.o] Error 1
 make[1]: Leaving directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_e39ad/fast] Error 2
+make: *** [Makefile:121: cmTC_ac018/fast] Error 2
 
 
 File /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -156,17 +156,17 @@ int main(int argc, char** argv)
 Determining if the uuid_generate exist failed with the following output:
 Change Dir: /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_13a13/fast && /usr/bin/make -f CMakeFiles/cmTC_13a13.dir/build.make CMakeFiles/cmTC_13a13.dir/build
+Run Build Command(s):/usr/bin/make cmTC_74951/fast && /usr/bin/make -f CMakeFiles/cmTC_74951.dir/build.make CMakeFiles/cmTC_74951.dir/build
 make[1]: Entering directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_13a13.dir/CheckSymbolExists.c.o
-/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_13a13.dir/CheckSymbolExists.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Building C object CMakeFiles/cmTC_74951.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -std=c11 -o CMakeFiles/cmTC_74951.dir/CheckSymbolExists.c.o   -c /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: uuid/uuid.h: No such file or directory
     2 | #include <uuid/uuid.h>
       |          ^~~~~~~~~~~~~
 compilation terminated.
-make[1]: *** [CMakeFiles/cmTC_13a13.dir/build.make:66: CMakeFiles/cmTC_13a13.dir/CheckSymbolExists.c.o] Error 1
+make[1]: *** [CMakeFiles/cmTC_74951.dir/build.make:66: CMakeFiles/cmTC_74951.dir/CheckSymbolExists.c.o] Error 1
 make[1]: Leaving directory '/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_13a13/fast] Error 2
+make: *** [Makefile:121: cmTC_74951/fast] Error 2
 
 
 File /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:

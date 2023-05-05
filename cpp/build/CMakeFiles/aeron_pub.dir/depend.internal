@@ -75,5 +75,5 @@ CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o
  ../external/aeron/aeron-client/src/main/cpp/util/Platform.h
  ../external/aeron/aeron-client/src/main/cpp/util/ScopeUtils.h
  ../external/aeron/aeron-client/src/main/cpp/util/StringUtil.h
- ../include/Configuration.hpp
+ ../include/AeronConf.hpp
  /mnt/d/aeron_udp_service/cpp/src/aeron/BasicPublisher.cpp

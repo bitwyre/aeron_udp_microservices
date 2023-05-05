@@ -6,9 +6,13 @@
 
 #IncludeRegexTransform: 
 
+../include/KafkaConf.hpp
+cppkafka/cppkafka.h
+-
+
 /mnt/d/aeron_udp_service/cpp/src/kafka/consumer.cpp
 iostream
 -
-cppkafka/cppkafka.h
--
+KafkaConf.hpp
+/mnt/d/aeron_udp_service/cpp/src/kafka/KafkaConf.hpp
 
