@@ -5,14 +5,17 @@ find_package(CppKafka REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(external/aeron)
-add_executable(pub src/BasicPublisher.cpp)
-add_executable(cons src/BasicSubscriber.cpp)
+add_executable(aeron_pub src/aeron/BasicPublisher.cpp)
+add_executable(aeron_sub src/aeron/BasicSubscriber.cpp)
+add_executable(kafka_cons src/kafka/consumer.cpp)
 
-target_link_libraries(pub PUBLIC CppKafka::cppkafka)
-target_link_libraries(pub PUBLIC aeron_client)
+target_link_libraries(kafka_cons PUBLIC CppKafka::cppkafka)
 
-target_link_libraries(cons PUBLIC CppKafka::cppkafka)
-target_link_libraries(cons PUBLIC aeron_client)
+target_link_libraries(aeron_pub PUBLIC CppKafka::cppkafka)
+target_link_libraries(aeron_pub PUBLIC aeron_client)
 
-target_include_directories(pub PUBLIC ${PROJECT_SOURCE_DIR}/include)
-target_include_directories(cons PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_link_libraries(aeron_sub PUBLIC CppKafka::cppkafka)
+target_link_libraries(aeron_sub PUBLIC aeron_client)
+
+target_include_directories(aeron_pub PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(aeron_sub PUBLIC ${PROJECT_SOURCE_DIR}/include)

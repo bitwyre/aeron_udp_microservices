@@ -57,27 +57,27 @@ include CMakeFiles/cons.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cons.dir/flags.make
 
-CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o: CMakeFiles/cons.dir/flags.make
-CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o: ../src/BasicSubscriber.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o -c /mnt/d/aeron_udp_service/cpp/src/BasicSubscriber.cpp
+CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o: CMakeFiles/cons.dir/flags.make
+CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o: ../src/aeron/BasicSubscriber.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o -c /mnt/d/aeron_udp_service/cpp/src/aeron/BasicSubscriber.cpp
 
-CMakeFiles/cons.dir/src/BasicSubscriber.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cons.dir/src/BasicSubscriber.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/aeron_udp_service/cpp/src/BasicSubscriber.cpp > CMakeFiles/cons.dir/src/BasicSubscriber.cpp.i
+CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/aeron_udp_service/cpp/src/aeron/BasicSubscriber.cpp > CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.i
 
-CMakeFiles/cons.dir/src/BasicSubscriber.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cons.dir/src/BasicSubscriber.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/aeron_udp_service/cpp/src/BasicSubscriber.cpp -o CMakeFiles/cons.dir/src/BasicSubscriber.cpp.s
+CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/aeron_udp_service/cpp/src/aeron/BasicSubscriber.cpp -o CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.s
 
 # Object files for target cons
 cons_OBJECTS = \
-"CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o"
+"CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o"
 
 # External object files for target cons
 cons_EXTERNAL_OBJECTS =
 
-cons: CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o
+cons: CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o
 cons: CMakeFiles/cons.dir/build.make
 cons: /usr/local/lib/libcppkafka.so.0.4.0
 cons: external/aeron/lib/libaeron_client.a

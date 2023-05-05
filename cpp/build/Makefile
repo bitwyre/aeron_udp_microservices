@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /mnt/d/aeron_udp_service/cpp/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/d/aeron_udp_service/cpp/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-
-.PHONY : package_source/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/d/aeron_udp_service/cpp/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+
+.PHONY : package_source/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -133,30 +133,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cons
+# Target rules for targets named kafka_cons
 
 # Build rule for target.
-cons: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cons
-.PHONY : cons
+kafka_cons: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kafka_cons
+.PHONY : kafka_cons
 
 # fast build rule for target.
-cons/fast:
-	$(MAKE) -f CMakeFiles/cons.dir/build.make CMakeFiles/cons.dir/build
-.PHONY : cons/fast
+kafka_cons/fast:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/build
+.PHONY : kafka_cons/fast
 
 #=============================================================================
-# Target rules for targets named pub
+# Target rules for targets named aeron_sub
 
 # Build rule for target.
-pub: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pub
-.PHONY : pub
+aeron_sub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aeron_sub
+.PHONY : aeron_sub
 
 # fast build rule for target.
-pub/fast:
-	$(MAKE) -f CMakeFiles/pub.dir/build.make CMakeFiles/pub.dir/build
-.PHONY : pub/fast
+aeron_sub/fast:
+	$(MAKE) -f CMakeFiles/aeron_sub.dir/build.make CMakeFiles/aeron_sub.dir/build
+.PHONY : aeron_sub/fast
+
+#=============================================================================
+# Target rules for targets named aeron_pub
+
+# Build rule for target.
+aeron_pub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aeron_pub
+.PHONY : aeron_pub
+
+# fast build rule for target.
+aeron_pub/fast:
+	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/build
+.PHONY : aeron_pub/fast
 
 #=============================================================================
 # Target rules for targets named aeron-all-jar
@@ -314,59 +327,86 @@ codecs/fast:
 	$(MAKE) -f external/aeron/aeron-archive/src/main/cpp/CMakeFiles/codecs.dir/build.make external/aeron/aeron-archive/src/main/cpp/CMakeFiles/codecs.dir/build
 .PHONY : codecs/fast
 
-src/BasicPublisher.o: src/BasicPublisher.cpp.o
+src/aeron/BasicPublisher.o: src/aeron/BasicPublisher.cpp.o
 
-.PHONY : src/BasicPublisher.o
-
-# target to build an object file
-src/BasicPublisher.cpp.o:
-	$(MAKE) -f CMakeFiles/pub.dir/build.make CMakeFiles/pub.dir/src/BasicPublisher.cpp.o
-.PHONY : src/BasicPublisher.cpp.o
-
-src/BasicPublisher.i: src/BasicPublisher.cpp.i
-
-.PHONY : src/BasicPublisher.i
-
-# target to preprocess a source file
-src/BasicPublisher.cpp.i:
-	$(MAKE) -f CMakeFiles/pub.dir/build.make CMakeFiles/pub.dir/src/BasicPublisher.cpp.i
-.PHONY : src/BasicPublisher.cpp.i
-
-src/BasicPublisher.s: src/BasicPublisher.cpp.s
-
-.PHONY : src/BasicPublisher.s
-
-# target to generate assembly for a file
-src/BasicPublisher.cpp.s:
-	$(MAKE) -f CMakeFiles/pub.dir/build.make CMakeFiles/pub.dir/src/BasicPublisher.cpp.s
-.PHONY : src/BasicPublisher.cpp.s
-
-src/BasicSubscriber.o: src/BasicSubscriber.cpp.o
-
-.PHONY : src/BasicSubscriber.o
+.PHONY : src/aeron/BasicPublisher.o
 
 # target to build an object file
-src/BasicSubscriber.cpp.o:
-	$(MAKE) -f CMakeFiles/cons.dir/build.make CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o
-.PHONY : src/BasicSubscriber.cpp.o
+src/aeron/BasicPublisher.cpp.o:
+	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o
+.PHONY : src/aeron/BasicPublisher.cpp.o
 
-src/BasicSubscriber.i: src/BasicSubscriber.cpp.i
+src/aeron/BasicPublisher.i: src/aeron/BasicPublisher.cpp.i
 
-.PHONY : src/BasicSubscriber.i
+.PHONY : src/aeron/BasicPublisher.i
 
 # target to preprocess a source file
-src/BasicSubscriber.cpp.i:
-	$(MAKE) -f CMakeFiles/cons.dir/build.make CMakeFiles/cons.dir/src/BasicSubscriber.cpp.i
-.PHONY : src/BasicSubscriber.cpp.i
+src/aeron/BasicPublisher.cpp.i:
+	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.i
+.PHONY : src/aeron/BasicPublisher.cpp.i
 
-src/BasicSubscriber.s: src/BasicSubscriber.cpp.s
+src/aeron/BasicPublisher.s: src/aeron/BasicPublisher.cpp.s
 
-.PHONY : src/BasicSubscriber.s
+.PHONY : src/aeron/BasicPublisher.s
 
 # target to generate assembly for a file
-src/BasicSubscriber.cpp.s:
-	$(MAKE) -f CMakeFiles/cons.dir/build.make CMakeFiles/cons.dir/src/BasicSubscriber.cpp.s
-.PHONY : src/BasicSubscriber.cpp.s
+src/aeron/BasicPublisher.cpp.s:
+	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.s
+.PHONY : src/aeron/BasicPublisher.cpp.s
+
+src/aeron/BasicSubscriber.o: src/aeron/BasicSubscriber.cpp.o
+
+.PHONY : src/aeron/BasicSubscriber.o
+
+# target to build an object file
+src/aeron/BasicSubscriber.cpp.o:
+	$(MAKE) -f CMakeFiles/aeron_sub.dir/build.make CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o
+.PHONY : src/aeron/BasicSubscriber.cpp.o
+
+src/aeron/BasicSubscriber.i: src/aeron/BasicSubscriber.cpp.i
+
+.PHONY : src/aeron/BasicSubscriber.i
+
+# target to preprocess a source file
+src/aeron/BasicSubscriber.cpp.i:
+	$(MAKE) -f CMakeFiles/aeron_sub.dir/build.make CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.i
+.PHONY : src/aeron/BasicSubscriber.cpp.i
+
+src/aeron/BasicSubscriber.s: src/aeron/BasicSubscriber.cpp.s
+
+.PHONY : src/aeron/BasicSubscriber.s
+
+# target to generate assembly for a file
+src/aeron/BasicSubscriber.cpp.s:
+	$(MAKE) -f CMakeFiles/aeron_sub.dir/build.make CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.s
+.PHONY : src/aeron/BasicSubscriber.cpp.s
+
+src/kafka/consumer.o: src/kafka/consumer.cpp.o
+
+.PHONY : src/kafka/consumer.o
+
+# target to build an object file
+src/kafka/consumer.cpp.o:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o
+.PHONY : src/kafka/consumer.cpp.o
+
+src/kafka/consumer.i: src/kafka/consumer.cpp.i
+
+.PHONY : src/kafka/consumer.i
+
+# target to preprocess a source file
+src/kafka/consumer.cpp.i:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.i
+.PHONY : src/kafka/consumer.cpp.i
+
+src/kafka/consumer.s: src/kafka/consumer.cpp.s
+
+.PHONY : src/kafka/consumer.s
+
+# target to generate assembly for a file
+src/kafka/consumer.cpp.s:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.s
+.PHONY : src/kafka/consumer.cpp.s
 
 # Help Target
 help:
@@ -374,12 +414,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... package_source"
 	@echo "... edit_cache"
-	@echo "... cons"
+	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... package"
-	@echo "... pub"
+	@echo "... kafka_cons"
+	@echo "... aeron_sub"
+	@echo "... aeron_pub"
 	@echo "... aeron-all-jar"
 	@echo "... aeron_static"
 	@echo "... aeron"
@@ -392,12 +433,15 @@ help:
 	@echo "... aeron_archive_client_wrapper"
 	@echo "... aeron_archive_client"
 	@echo "... codecs"
-	@echo "... src/BasicPublisher.o"
-	@echo "... src/BasicPublisher.i"
-	@echo "... src/BasicPublisher.s"
-	@echo "... src/BasicSubscriber.o"
-	@echo "... src/BasicSubscriber.i"
-	@echo "... src/BasicSubscriber.s"
+	@echo "... src/aeron/BasicPublisher.o"
+	@echo "... src/aeron/BasicPublisher.i"
+	@echo "... src/aeron/BasicPublisher.s"
+	@echo "... src/aeron/BasicSubscriber.o"
+	@echo "... src/aeron/BasicSubscriber.i"
+	@echo "... src/aeron/BasicSubscriber.s"
+	@echo "... src/kafka/consumer.o"
+	@echo "... src/kafka/consumer.i"
+	@echo "... src/kafka/consumer.s"
 .PHONY : help
 
 

@@ -53,8 +53,9 @@ CMAKE_BINARY_DIR = /mnt/d/aeron_udp_service/cpp/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/cons.dir/all
-all: CMakeFiles/pub.dir/all
+all: CMakeFiles/kafka_cons.dir/all
+all: CMakeFiles/aeron_sub.dir/all
+all: CMakeFiles/aeron_pub.dir/all
 all: src/all
 all: external/aeron/all
 
@@ -67,8 +68,9 @@ preinstall: external/aeron/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/cons.dir/clean
-clean: CMakeFiles/pub.dir/clean
+clean: CMakeFiles/kafka_cons.dir/clean
+clean: CMakeFiles/aeron_sub.dir/clean
+clean: CMakeFiles/aeron_pub.dir/clean
 clean: src/clean
 clean: external/aeron/clean
 
@@ -212,73 +214,139 @@ external/aeron/aeron-driver/src/main/c/clean: external/aeron/aeron-driver/src/ma
 # Directory level rules for directory src
 
 # Recursive "all" directory target.
-src/all:
+src/all: src/aeron/all
+src/all: src/kafka/all
 
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
-src/preinstall:
+src/preinstall: src/aeron/preinstall
+src/preinstall: src/kafka/preinstall
 
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
-src/clean:
+src/clean: src/aeron/clean
+src/clean: src/kafka/clean
 
 .PHONY : src/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/cons.dir
+# Directory level rules for directory src/aeron
 
-# All Build rule for target.
-CMakeFiles/cons.dir/all: external/aeron/aeron-client/src/main/cpp/CMakeFiles/aeron_client.dir/all
-	$(MAKE) -f CMakeFiles/cons.dir/build.make CMakeFiles/cons.dir/depend
-	$(MAKE) -f CMakeFiles/cons.dir/build.make CMakeFiles/cons.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=99 "Built target cons"
-.PHONY : CMakeFiles/cons.dir/all
+# Recursive "all" directory target.
+src/aeron/all:
 
-# Build rule for subdir invocation for target.
-CMakeFiles/cons.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/cons.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 0
-.PHONY : CMakeFiles/cons.dir/rule
+.PHONY : src/aeron/all
 
-# Convenience name for target.
-cons: CMakeFiles/cons.dir/rule
+# Recursive "preinstall" directory target.
+src/aeron/preinstall:
 
-.PHONY : cons
+.PHONY : src/aeron/preinstall
 
-# clean rule for target.
-CMakeFiles/cons.dir/clean:
-	$(MAKE) -f CMakeFiles/cons.dir/build.make CMakeFiles/cons.dir/clean
-.PHONY : CMakeFiles/cons.dir/clean
+# Recursive "clean" directory target.
+src/aeron/clean:
+
+.PHONY : src/aeron/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/pub.dir
+# Directory level rules for directory src/kafka
+
+# Recursive "all" directory target.
+src/kafka/all:
+
+.PHONY : src/kafka/all
+
+# Recursive "preinstall" directory target.
+src/kafka/preinstall:
+
+.PHONY : src/kafka/preinstall
+
+# Recursive "clean" directory target.
+src/kafka/clean:
+
+.PHONY : src/kafka/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/kafka_cons.dir
 
 # All Build rule for target.
-CMakeFiles/pub.dir/all: external/aeron/aeron-client/src/main/cpp/CMakeFiles/aeron_client.dir/all
-	$(MAKE) -f CMakeFiles/pub.dir/build.make CMakeFiles/pub.dir/depend
-	$(MAKE) -f CMakeFiles/pub.dir/build.make CMakeFiles/pub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=100 "Built target pub"
-.PHONY : CMakeFiles/pub.dir/all
+CMakeFiles/kafka_cons.dir/all:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/depend
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=100 "Built target kafka_cons"
+.PHONY : CMakeFiles/kafka_cons.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/pub.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/pub.dir/all
+CMakeFiles/kafka_cons.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/kafka_cons.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 0
-.PHONY : CMakeFiles/pub.dir/rule
+.PHONY : CMakeFiles/kafka_cons.dir/rule
 
 # Convenience name for target.
-pub: CMakeFiles/pub.dir/rule
+kafka_cons: CMakeFiles/kafka_cons.dir/rule
 
-.PHONY : pub
+.PHONY : kafka_cons
 
 # clean rule for target.
-CMakeFiles/pub.dir/clean:
-	$(MAKE) -f CMakeFiles/pub.dir/build.make CMakeFiles/pub.dir/clean
-.PHONY : CMakeFiles/pub.dir/clean
+CMakeFiles/kafka_cons.dir/clean:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/clean
+.PHONY : CMakeFiles/kafka_cons.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/aeron_sub.dir
+
+# All Build rule for target.
+CMakeFiles/aeron_sub.dir/all: external/aeron/aeron-client/src/main/cpp/CMakeFiles/aeron_client.dir/all
+	$(MAKE) -f CMakeFiles/aeron_sub.dir/build.make CMakeFiles/aeron_sub.dir/depend
+	$(MAKE) -f CMakeFiles/aeron_sub.dir/build.make CMakeFiles/aeron_sub.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=98 "Built target aeron_sub"
+.PHONY : CMakeFiles/aeron_sub.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/aeron_sub.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/aeron_sub.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 0
+.PHONY : CMakeFiles/aeron_sub.dir/rule
+
+# Convenience name for target.
+aeron_sub: CMakeFiles/aeron_sub.dir/rule
+
+.PHONY : aeron_sub
+
+# clean rule for target.
+CMakeFiles/aeron_sub.dir/clean:
+	$(MAKE) -f CMakeFiles/aeron_sub.dir/build.make CMakeFiles/aeron_sub.dir/clean
+.PHONY : CMakeFiles/aeron_sub.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/aeron_pub.dir
+
+# All Build rule for target.
+CMakeFiles/aeron_pub.dir/all: external/aeron/aeron-client/src/main/cpp/CMakeFiles/aeron_client.dir/all
+	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/depend
+	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=81 "Built target aeron_pub"
+.PHONY : CMakeFiles/aeron_pub.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/aeron_pub.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/aeron_pub.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 0
+.PHONY : CMakeFiles/aeron_pub.dir/rule
+
+# Convenience name for target.
+aeron_pub: CMakeFiles/aeron_pub.dir/rule
+
+.PHONY : aeron_pub
+
+# clean rule for target.
+CMakeFiles/aeron_pub.dir/clean:
+	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/clean
+.PHONY : CMakeFiles/aeron_pub.dir/clean
 
 #=============================================================================
 # Target rules for target external/aeron/CMakeFiles/aeron-all-jar.dir
@@ -422,12 +490,12 @@ external/aeron/aeron-client/src/main/cpp/CMakeFiles/aeron_client.dir/clean:
 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/all: external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver_static.dir/all
 	$(MAKE) -f external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/build.make external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/depend
 	$(MAKE) -f external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/build.make external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num= "Built target aeronmd_s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=99 "Built target aeronmd_s"
 .PHONY : external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/all
 
 # Build rule for subdir invocation for target.
 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 27
 	$(MAKE) -f CMakeFiles/Makefile2 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 0
 .PHONY : external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/rule
@@ -449,7 +517,7 @@ external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd_s.dir/clean:
 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver_static.dir/all:
 	$(MAKE) -f external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver_static.dir/build.make external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver_static.dir/depend
 	$(MAKE) -f external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver_static.dir/build.make external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver_static.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81 "Built target aeron_driver_static"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80 "Built target aeron_driver_static"
 .PHONY : external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver_static.dir/all
 
 # Build rule for subdir invocation for target.
@@ -476,12 +544,12 @@ external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver_static.dir/clean:
 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/all: external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/all
 	$(MAKE) -f external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/build.make external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/depend
 	$(MAKE) -f external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/build.make external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=98 "Built target aeronmd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num= "Built target aeronmd"
 .PHONY : external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/all
 
 # Build rule for subdir invocation for target.
 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 26
 	$(MAKE) -f CMakeFiles/Makefile2 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 0
 .PHONY : external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/rule
@@ -503,12 +571,12 @@ external/aeron/aeron-driver/src/main/c/CMakeFiles/aeronmd.dir/clean:
 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/all:
 	$(MAKE) -f external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/build.make external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/depend
 	$(MAKE) -f external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/build.make external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55 "Built target aeron_driver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54 "Built target aeron_driver"
 .PHONY : external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/all
 
 # Build rule for subdir invocation for target.
 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 26
 	$(MAKE) -f CMakeFiles/Makefile2 external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 0
 .PHONY : external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/rule

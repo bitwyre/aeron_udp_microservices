@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o"
+  "CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o"
   "cons"
   "cons.pdb"
 )

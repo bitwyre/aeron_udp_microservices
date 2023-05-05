@@ -19,6 +19,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../external/aeron/aeron-client/src/main/cpp_wrapper/CMakeLists.txt"
   "../external/aeron/aeron-driver/src/main/c/CMakeLists.txt"
   "../src/CMakeLists.txt"
+  "../src/aeron/CMakeLists.txt"
+  "../src/kafka/CMakeLists.txt"
   "/usr/lib/cmake/Boost-1.79.0/BoostConfig.cmake"
   "/usr/lib/cmake/Boost-1.79.0/BoostConfigVersion.cmake"
   "/usr/lib/cmake/boost_headers-1.79.0/boost_headers-config-version.cmake"
@@ -76,6 +78,8 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/aeron/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/kafka/CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/aeron/CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/aeron/aeron-client/src/main/c/CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/aeron/aeron-client/src/main/cpp/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -86,8 +90,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/cons.dir/DependInfo.cmake"
-  "CMakeFiles/pub.dir/DependInfo.cmake"
+  "CMakeFiles/kafka_cons.dir/DependInfo.cmake"
+  "CMakeFiles/aeron_sub.dir/DependInfo.cmake"
+  "CMakeFiles/aeron_pub.dir/DependInfo.cmake"
   "external/aeron/CMakeFiles/aeron-all-jar.dir/DependInfo.cmake"
   "external/aeron/aeron-client/src/main/c/CMakeFiles/aeron_static.dir/DependInfo.cmake"
   "external/aeron/aeron-client/src/main/c/CMakeFiles/aeron.dir/DependInfo.cmake"

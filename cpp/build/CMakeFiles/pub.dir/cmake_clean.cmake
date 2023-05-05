@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/pub.dir/src/BasicPublisher.cpp.o"
+  "CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.o"
   "pub"
   "pub.pdb"
 )

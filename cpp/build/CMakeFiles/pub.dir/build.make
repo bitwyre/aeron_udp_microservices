@@ -57,27 +57,27 @@ include CMakeFiles/pub.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/pub.dir/flags.make
 
-CMakeFiles/pub.dir/src/BasicPublisher.cpp.o: CMakeFiles/pub.dir/flags.make
-CMakeFiles/pub.dir/src/BasicPublisher.cpp.o: ../src/BasicPublisher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pub.dir/src/BasicPublisher.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pub.dir/src/BasicPublisher.cpp.o -c /mnt/d/aeron_udp_service/cpp/src/BasicPublisher.cpp
+CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.o: CMakeFiles/pub.dir/flags.make
+CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.o: ../src/aeron/BasicPublisher.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.o -c /mnt/d/aeron_udp_service/cpp/src/aeron/BasicPublisher.cpp
 
-CMakeFiles/pub.dir/src/BasicPublisher.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pub.dir/src/BasicPublisher.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/aeron_udp_service/cpp/src/BasicPublisher.cpp > CMakeFiles/pub.dir/src/BasicPublisher.cpp.i
+CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/aeron_udp_service/cpp/src/aeron/BasicPublisher.cpp > CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.i
 
-CMakeFiles/pub.dir/src/BasicPublisher.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pub.dir/src/BasicPublisher.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/aeron_udp_service/cpp/src/BasicPublisher.cpp -o CMakeFiles/pub.dir/src/BasicPublisher.cpp.s
+CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/aeron_udp_service/cpp/src/aeron/BasicPublisher.cpp -o CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.s
 
 # Object files for target pub
 pub_OBJECTS = \
-"CMakeFiles/pub.dir/src/BasicPublisher.cpp.o"
+"CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.o"
 
 # External object files for target pub
 pub_EXTERNAL_OBJECTS =
 
-pub: CMakeFiles/pub.dir/src/BasicPublisher.cpp.o
+pub: CMakeFiles/pub.dir/src/aeron/BasicPublisher.cpp.o
 pub: CMakeFiles/pub.dir/build.make
 pub: /usr/local/lib/libcppkafka.so.0.4.0
 pub: external/aeron/lib/libaeron_client.a

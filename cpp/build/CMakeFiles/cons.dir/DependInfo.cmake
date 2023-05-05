@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/d/aeron_udp_service/cpp/src/BasicSubscriber.cpp" "/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/cons.dir/src/BasicSubscriber.cpp.o"
+  "/mnt/d/aeron_udp_service/cpp/src/aeron/BasicSubscriber.cpp" "/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/cons.dir/src/aeron/BasicSubscriber.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
