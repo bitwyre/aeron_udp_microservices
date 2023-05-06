@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = -DDISABLE_BOUNDS_CHECKS -D__PROJECT_SOURCE_DIR__=\"/mnt/d/aeron_udp_service/cpp/external/aeron\"
 
-CXX_INCLUDES = -I/mnt/d/aeron_udp_service/cpp/include -I/mnt/d/aeron_udp_service/cpp/include/flatbuffers -I/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp 
+CXX_INCLUDES = -I/mnt/d/aeron_udp_service/cpp/include -I/mnt/d/aeron_udp_service/cpp/include/flatbuffers -I/mnt/d/aeron_udp_service/cpp/include/configs -I/mnt/d/aeron_udp_service/cpp/external/aeron/aeron-client/src/main/cpp 
 

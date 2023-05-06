@@ -24,4 +24,6 @@ target_include_directories(aeron_pub PUBLIC ${PROJECT_SOURCE_DIR}/include/flatbu
 target_include_directories(aeron_sub PUBLIC ${PROJECT_SOURCE_DIR}/include/flatbuffers)
 target_include_directories(kafka_cons PRIVATE ${PROJECT_SOURCE_DIR}/include/flatbuffers)
 
-
+target_include_directories(aeron_pub PUBLIC ${PROJECT_SOURCE_DIR}/include/configs)
+target_include_directories(aeron_sub PUBLIC ${PROJECT_SOURCE_DIR}/include/configs)
+target_include_directories(kafka_cons PUBLIC ${PROJECT_SOURCE_DIR}/include/configs)

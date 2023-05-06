@@ -77,6 +77,6 @@ CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o
  ../external/aeron/aeron-client/src/main/cpp/util/Platform.h
  ../external/aeron/aeron-client/src/main/cpp/util/ScopeUtils.h
  ../external/aeron/aeron-client/src/main/cpp/util/StringUtil.h
- ../include/AeronConf.hpp
+ ../include/configs/AeronConf.hpp
  ../include/flatbuffers/TradeEvent_generated.h
  /mnt/d/aeron_udp_service/cpp/src/aeron/BasicSubscriber.cpp

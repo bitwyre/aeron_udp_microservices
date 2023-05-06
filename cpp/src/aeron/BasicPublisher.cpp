@@ -9,6 +9,7 @@
 #include "TradeEvent_generated.h" 
 #include <flatbuffers/flatbuffers.h>
 #include "AeronConf.hpp"
+#include "AeronProducer.hpp"
 #include "Aeron.h"
 
 using namespace aeron::util;
@@ -86,6 +87,7 @@ int main()
 
     Context context;
     std::string channel = "aeron:udp?endpoint=localhost:20121";
+    int streamid = 3;
 
     context.newSubscriptionHandler(
         [](const std::string &channel, std::int32_t streamId, std::int64_t correlationId)
@@ -109,8 +111,9 @@ int main()
 
     std::shared_ptr<Aeron> aeron = Aeron::connect(context);
     
-    // AERON_DECL_ALIGNED(buffer_t buffer, 16);
-    concurrent::AtomicBuffer srcBuffer(&buffer[0], buffer.size());
+    concurrent::AtomicBuffer srcBuffer;
+    srcBuffer.wrap(&buffer[0], buffer.size());
+
 
     //store
     srcBuffer.putBytes(0, buffers, size);

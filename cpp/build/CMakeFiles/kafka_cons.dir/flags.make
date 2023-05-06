@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/d/aeron_udp_service/cpp/include -I/mnt/d/aeron_udp_service/cpp/include/flatbuffers 
+CXX_INCLUDES = -I/mnt/d/aeron_udp_service/cpp/include -I/mnt/d/aeron_udp_service/cpp/include/flatbuffers -I/mnt/d/aeron_udp_service/cpp/include/configs 
 

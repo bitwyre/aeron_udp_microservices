@@ -74,7 +74,8 @@ CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../external/aeron/aeron
 CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../external/aeron/aeron-client/src/main/cpp/util/Platform.h
 CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../external/aeron/aeron-client/src/main/cpp/util/ScopeUtils.h
 CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../external/aeron/aeron-client/src/main/cpp/util/StringUtil.h
-CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../include/AeronConf.hpp
+CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../include/AeronProducer.hpp
+CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../include/configs/AeronConf.hpp
 CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../include/flatbuffers/TradeEvent_generated.h
 CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o: ../src/aeron/BasicPublisher.cpp
 

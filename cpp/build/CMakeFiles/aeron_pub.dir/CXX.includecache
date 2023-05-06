@@ -724,7 +724,15 @@ cstdarg
 util/Exceptions.h
 ../external/aeron/aeron-client/src/main/cpp/util/util/Exceptions.h
 
-../include/AeronConf.hpp
+../include/AeronProducer.hpp
+string
+-
+vector
+-
+Aeron.h
+../include/Aeron.h
+
+../include/configs/AeronConf.hpp
 string
 -
 cstdint
@@ -755,6 +763,8 @@ flatbuffers/flatbuffers.h
 -
 AeronConf.hpp
 /mnt/d/aeron_udp_service/cpp/src/aeron/AeronConf.hpp
+AeronProducer.hpp
+/mnt/d/aeron_udp_service/cpp/src/aeron/AeronProducer.hpp
 Aeron.h
 /mnt/d/aeron_udp_service/cpp/src/aeron/Aeron.h
 

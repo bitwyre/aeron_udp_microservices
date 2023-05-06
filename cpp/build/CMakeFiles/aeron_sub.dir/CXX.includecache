@@ -736,7 +736,7 @@ cstdarg
 util/Exceptions.h
 ../external/aeron/aeron-client/src/main/cpp/util/util/Exceptions.h
 
-../include/AeronConf.hpp
+../include/configs/AeronConf.hpp
 string
 -
 cstdint
