@@ -6,195 +6,161 @@
 #include <cinttypes>
 
 #include "util/CommandOptionParser.h"
+#include "TradeEvent_generated.h" 
+#include <flatbuffers/flatbuffers.h>
 #include "AeronConf.hpp"
 #include "Aeron.h"
 
 using namespace aeron::util;
 using namespace aeron;
+using namespace aeron_udp;
 
-std::atomic<bool> running(true);
+std::array<std::uint8_t, 200000> buffer;
 
-void sigIntHandler(int)
+
+int main()
 {
-    running = false;
-}
 
-static const char optHelp = 'h';
-static const char optPrefix = 'p';
-static const char optChannel = 'c';
-static const char optStreamId = 's';
-static const char optMessages = 'm';
-static const char optLinger = 'l';
+    // Serialize the data
+    flatbuffers::FlatBufferBuilder builder;
 
-struct Settings
-{
-    std::string dirPrefix;
-    std::string channel = samples::configuration::DEFAULT_CHANNEL;
-    std::int32_t streamId = samples::configuration::DEFAULT_STREAM_ID;
-    long long numberOfMessages = samples::configuration::DEFAULT_NUMBER_OF_MESSAGES;
-    int lingerTimeoutMs = samples::configuration::DEFAULT_LINGER_TIMEOUT_MS;
-};
+    // Fill in the data for the TradeEvent
+    std::string instrument = "BTC/USD";
+    std::string base_currency = "BTC";
+    std::string quote_currency = "USD";
+    uint64_t timestamp = 1234567890;
+    std::string trade_id = "1234";
+    uint64_t quantity = 1;
+    std::string price = "50000";
+    std::string value = "5000000000";
+    std::string trader_long = "John Doe";
+    std::string trader_short = "JD";
+    std::string ord_id_long = "5678";
+    std::string ord_id_short = "5678S";
+    std::string maker = "Jane Doe";
+    std::string taker = "JT";
+    std::string market = "BTC/USD";
+    uint32_t leverage_long = 10;
+    uint32_t leverage_short = 20;
 
-typedef std::array<std::uint8_t, 256> buffer_t;
+    // Create a TradeEvent object with the data
+    auto instrument_offset = builder.CreateString(instrument);
+    auto base_currency_offset = builder.CreateString(base_currency);
+    auto quote_currency_offset = builder.CreateString(quote_currency);
+    auto trade_id_offset = builder.CreateString(trade_id);
+    auto price_offset = builder.CreateString(price);
+    auto value_offset = builder.CreateString(value);
+    auto trader_long_offset = builder.CreateString(trader_long);
+    auto trader_short_offset = builder.CreateString(trader_short);
+    auto ord_id_long_offset = builder.CreateString(ord_id_long);
+    auto ord_id_short_offset = builder.CreateString(ord_id_short);
+    auto maker_offset = builder.CreateString(maker);
+    auto taker_offset = builder.CreateString(taker);
+    auto market_offset = builder.CreateString(market);
 
-Settings parseCmdLine(CommandOptionParser &cp, int argc, char **argv)
-{
-    cp.parse(argc, argv);
-    if (cp.getOption(optHelp).isPresent())
+    auto trade_event = CreateTradeEvent(
+        builder,
+        instrument_offset,
+        base_currency_offset,
+        quote_currency_offset,
+        timestamp,
+        trade_id_offset,
+        quantity,
+        price_offset,
+        value_offset,
+        trader_long_offset,
+        trader_short_offset,
+        ord_id_long_offset,
+        ord_id_short_offset,
+        maker_offset,
+        taker_offset,
+        market_offset,
+        leverage_long,
+        leverage_short
+    );
+
+
+    builder.Finish(trade_event);
+    uint8_t* buffers = builder.GetBufferPointer();
+    int size = builder.GetSize();
+
+    Context context;
+    std::string channel = "aeron:udp?endpoint=localhost:20121";
+
+    context.newSubscriptionHandler(
+        [](const std::string &channel, std::int32_t streamId, std::int64_t correlationId)
+        {
+            std::cout << "Subscription: " << channel << " " << correlationId << ":" << streamId << std::endl;
+        });
+
+    context.availableImageHandler(
+        [](Image &image)
+        {
+            std::cout << "Available image correlationId=" << image.correlationId() << " sessionId=" << image.sessionId();
+            std::cout << " at position=" << image.position() << " from " << image.sourceIdentity() << std::endl;
+        });
+
+    context.unavailableImageHandler(
+        [](Image &image)
+        {
+            std::cout << "Unavailable image on correlationId=" << image.correlationId() << " sessionId=" << image.sessionId();
+            std::cout << " at position=" << image.position() << " from " << image.sourceIdentity() << std::endl;
+        });
+
+    std::shared_ptr<Aeron> aeron = Aeron::connect(context);
+    
+    // AERON_DECL_ALIGNED(buffer_t buffer, 16);
+    concurrent::AtomicBuffer srcBuffer(&buffer[0], buffer.size());
+    char message[256];
+    const int messageLen = ::snprintf(message, sizeof(message), "Hello World! %ld");
+    std::cout << messageLen << std::endl;
+
+    //store
+    srcBuffer.putBytes(0, buffers, size);
+
+    std::int64_t id = aeron->addPublication(channel, 3);
+
+    std::shared_ptr<Publication> publication = aeron->findPublication(id);
+
+    while (!publication)
     {
-        cp.displayOptionsHelp(std::cout);
-        exit(0);
+        std::this_thread::yield();
+        publication = aeron->findPublication(id);
     }
 
-    Settings s;
-
-    s.dirPrefix = cp.getOption(optPrefix).getParam(0, s.dirPrefix);
-    s.channel = cp.getOption(optChannel).getParam(0, s.channel);
-    s.streamId = cp.getOption(optStreamId).getParamAsInt(0, 1, INT32_MAX, s.streamId);
-    s.numberOfMessages = cp.getOption(optMessages).getParamAsLong(0, 0, INT64_MAX, s.numberOfMessages);
-    s.lingerTimeoutMs = cp.getOption(optLinger).getParamAsInt(0, 0, 60 * 60 * 1000, s.lingerTimeoutMs);
-
-    return s;
-}
-
-int main(int argc, char **argv)
-{
-    CommandOptionParser cp;
-    cp.addOption(CommandOption(optHelp,     0, 0, "                Displays help information."));
-    cp.addOption(CommandOption(optPrefix,   1, 1, "dir             Prefix directory for aeron driver."));
-    cp.addOption(CommandOption(optChannel,  1, 1, "channel         Channel."));
-    cp.addOption(CommandOption(optStreamId, 1, 1, "streamId        Stream ID."));
-    cp.addOption(CommandOption(optMessages, 1, 1, "number          Number of Messages."));
-    cp.addOption(CommandOption(optLinger,   1, 1, "milliseconds    Linger timeout in milliseconds."));
-
-    try
-    {
-        Settings settings = parseCmdLine(cp, argc, argv);
-
-        std::cout << "Publishing to channel " << settings.channel << " on Stream ID " << settings.streamId << std::endl;
-
-        aeron::Context context;
-        const std::string filename = context.cncFileName();
-        int64_t nams = MemoryMappedFile::getFileSize(filename.c_str());
-        std::cout << "filename size : " << nams << std::endl;
-        
-
-
-
-        std::cout << "filename : " << filename << std::endl;
-        if (!settings.dirPrefix.empty())
+    while(true){
+        const std::int64_t result = publication->offer(srcBuffer, 0, size);
+    
+        if (result > 0)
         {
-            context.aeronDir(settings.dirPrefix);
+            std::cout << "yay!" << std::endl;
         }
-        std::cout << "filename : " << filename << std::endl;
-
-
-        context.newPublicationHandler(
-            [](const std::string &channel, std::int32_t streamId, std::int32_t sessionId, std::int64_t correlationId)
-            {
-                std::cout << "Publication: " << channel << " " << correlationId << ":" << streamId << ":" << sessionId << std::endl;
-            });
-
-        std::cout << "before context: " << filename << std::endl;
-
-        std::shared_ptr<Aeron> aeron = Aeron::connect(context);
-        std::cout << "after context: " << filename << std::endl;
-        
-        signal(SIGINT, sigIntHandler);
-        // add the publication to start the process
-        std::int64_t id = aeron->addPublication(settings.channel, settings.streamId);
-
-        std::shared_ptr<Publication> publication = aeron->findPublication(id);
-        // wait for the publication to be valid
-        while (!publication)
+        else if (BACK_PRESSURED == result)
         {
-            std::this_thread::yield();
-            publication = aeron->findPublication(id);
+            std::cout << "Offer failed due to back pressure" << std::endl;
         }
-
-        const std::int64_t channelStatus = publication->channelStatus();
-
-        std::cout << "Publication channel status (id=" << publication->channelStatusId() << ") "
-                  << (channelStatus == ChannelEndpointStatus::CHANNEL_ENDPOINT_ACTIVE ?
-                      "ACTIVE" : std::to_string(channelStatus))
-                  << std::endl;
-
-        AERON_DECL_ALIGNED(buffer_t buffer, 16);
-        concurrent::AtomicBuffer srcBuffer(&buffer[0], buffer.size());
-        char message[256];
-
-        for (std::int64_t i = 0; i < settings.numberOfMessages && running; i++)
+        else if (NOT_CONNECTED == result)
         {
-#if _MSC_VER
-            const int messageLen = ::sprintf_s(message, sizeof(message), "Hello World! %" PRId64, i);
-#else
-            const int messageLen = ::snprintf(message, sizeof(message), "Hello World! %" PRId64, i);
-#endif
-
-            srcBuffer.putBytes(0, reinterpret_cast<std::uint8_t *>(message), messageLen);
-
-            std::cout << "offering " << i << "/" << settings.numberOfMessages << " - ";
-            std::cout.flush();
-
-            const std::int64_t result = publication->offer(srcBuffer, 0, messageLen);
-
-            if (result > 0)
-            {
-                std::cout << "yay!" << std::endl;
-            }
-            else if (BACK_PRESSURED == result)
-            {
-                std::cout << "Offer failed due to back pressure" << std::endl;
-            }
-            else if (NOT_CONNECTED == result)
-            {
-                std::cout << "Offer failed because publisher is not connected to a subscriber" << std::endl;
-            }
-            else if (ADMIN_ACTION == result)
-            {
-                std::cout << "Offer failed because of an administration action in the system" << std::endl;
-            }
-            else if (PUBLICATION_CLOSED == result)
-            {
-                std::cout << "Offer failed because publication is closed" << std::endl;
-            }
-            else
-            {
-                std::cout << "Offer failed due to unknown reason " << result << std::endl;
-            }
-
-            if (!publication->isConnected())
-            {
-                std::cout << "No active subscribers detected" << std::endl;
-            }
-
-            std::this_thread::sleep_for(std::chrono::seconds(1));
+            std::cout << "Offer failed because publisher is not connected to a subscriber" << std::endl;
+        }
+        else if (ADMIN_ACTION == result)
+        {
+            std::cout << "Offer failed because of an administration action in the system" << std::endl;
+        }
+        else if (PUBLICATION_CLOSED == result)
+        {
+            std::cout << "Offer failed because publication is closed" << std::endl;
+        }
+        else
+        {
+            std::cout << "Offer failed due to unknown reason " << result << std::endl;
         }
 
-        std::cout << "Done sending." << std::endl;
-
-        if (settings.lingerTimeoutMs > 0)
+        if (!publication->isConnected())
         {
-            std::cout << "Lingering for " << settings.lingerTimeoutMs << " milliseconds." << std::endl;
-            std::this_thread::sleep_for(std::chrono::milliseconds(settings.lingerTimeoutMs));
+            std::cout << "No active subscribers detected" << std::endl;
         }
-    }
-    catch (const CommandOptionException &e)
-    {
-        std::cerr << "ERROR: " << e.what() << std::endl << std::endl;
-        cp.displayOptionsHelp(std::cerr);
-        return -1;
-    }
-    catch (const SourcedException &e)
-    {
-        std::cerr << "FAILED: " << e.what() << " : " << e.where() << std::endl;
-        return -1;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "FAILED: " << e.what() << " : " << std::endl;
-        return -1;
-    }
 
+    }
     return 0;
 }

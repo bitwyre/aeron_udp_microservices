@@ -7,9 +7,11 @@
 #include "Aeron.h"
 #include "FragmentAssembler.h"
 #include "concurrent/SleepingIdleStrategy.h"
+#include "TradeEvent_generated.h"
 
 using namespace aeron::util;
 using namespace aeron;
+using namespace aeron_udp;
 
 std::atomic<bool> running(true);
 
@@ -51,15 +53,35 @@ Settings parseCmdLine(CommandOptionParser &cp, int argc, char **argv)
     return s;
 }
 
-fragment_handler_t printStringMessage()
+fragment_handler_t printTradeEvent()
 {
     return [&](const AtomicBuffer &buffer, util::index_t offset, util::index_t length, const Header &header)
     {
+        auto trade_event = GetTradeEvent(buffer.buffer() + offset);
+
         std::cout
             << "Message to stream " << header.streamId() << " from session " << header.sessionId()
             << "(" << length << "@" << offset << ") <<"
-            << std::string(reinterpret_cast<const char *>(buffer.buffer()) + offset, static_cast<std::size_t>(length))
-            << ">>" << std::endl;
+            << "TradeEvent: {"
+            << "instrument: " << trade_event->instrument()->str() << ", "
+            << "base_currency: " << trade_event->base_currency()->str() << ", "
+            << "quote_currency: " << trade_event->quote_currency()->str() << ", "
+            << "timestamp: " << trade_event->timestamp() << ", "
+            << "trade_id: " << trade_event->trade_id()->str() << ", "
+            << "quantity: " << trade_event->quantity() << ", "
+            << "price: " << trade_event->price()->str() << ", "
+            << "value: " << trade_event->value()->str() << ", "
+            << "trader_long: " << trade_event->trader_long()->str() << ", "
+            << "trader_short: " << trade_event->trader_short()->str() << ", "
+            << "ord_id_long: " << trade_event->ord_id_long()->str() << ", "
+            << "ord_id_short: " << trade_event->ord_id_short()->str() << ", "
+            << "maker: " << trade_event->maker()->str() << ", "
+            << "taker: " << trade_event->taker()->str() << ", "
+            << "market: " << trade_event->market()->str() << ", "
+            << "leverage_long: " << trade_event->leverage_long() << ", "
+            << "leverage_short: " << trade_event->leverage_short()
+            << "}}"
+            << std::endl;
     };
 }
 
@@ -107,7 +129,7 @@ int main(int argc, char **argv)
         std::shared_ptr<Aeron> aeron = Aeron::connect(context);
         signal(SIGINT, sigIntHandler);
         // add the subscription to start the process
-        std::int64_t id = aeron->addSubscription(settings.channel, settings.streamId);
+        std::int64_t id = aeron->addSubscription(settings.channel, 3);
 
         std::shared_ptr<Subscription> subscription = aeron->findSubscription(id);
         // wait for the subscription to be valid
@@ -124,7 +146,7 @@ int main(int argc, char **argv)
             << (channelStatus == ChannelEndpointStatus::CHANNEL_ENDPOINT_ACTIVE ? "ACTIVE" : std::to_string(channelStatus))
             << std::endl;
 
-        FragmentAssembler fragmentAssembler(printStringMessage());
+        FragmentAssembler fragmentAssembler(printTradeEvent());
         fragment_handler_t handler = fragmentAssembler.handler();
         SleepingIdleStrategy idleStrategy(IDLE_SLEEP_MS);
 
