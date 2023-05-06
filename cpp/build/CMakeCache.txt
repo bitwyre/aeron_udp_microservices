@@ -177,7 +177,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=aeron_udp
+CMAKE_PROJECT_NAME:STATIC=aeron
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.42.0
@@ -346,12 +346,6 @@ aeron_BINARY_DIR:STATIC=/mnt/d/aeron_udp_service/cpp/build/external/aeron
 
 //Value Computed by CMake
 aeron_SOURCE_DIR:STATIC=/mnt/d/aeron_udp_service/cpp/external/aeron
-
-//Value Computed by CMake
-aeron_udp_BINARY_DIR:STATIC=/mnt/d/aeron_udp_service/cpp/build
-
-//Value Computed by CMake
-aeron_udp_SOURCE_DIR:STATIC=/mnt/d/aeron_udp_service/cpp
 
 //The directory containing a CMake configuration file for boost_headers.
 boost_headers_DIR:PATH=/usr/lib/cmake/boost_headers-1.79.0

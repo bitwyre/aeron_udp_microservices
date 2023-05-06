@@ -1,0 +1,23 @@
+namespace aeron_udp;
+
+table TradeEvent {
+    instrument: string;
+    base_currency: string;
+    quote_currency: string;
+    timestamp: uint64;
+    trade_id: string;
+    quantity: uint64;
+    price: string;
+    value: string;
+    trader_long: string;
+    trader_short: string;
+    ord_id_long: string;
+    ord_id_short: string;
+    maker: string;
+    taker: string;
+    market: string;
+    leverage_long: uint32;
+    leverage_short: uint32;
+}
+
+root_type TradeEvent;

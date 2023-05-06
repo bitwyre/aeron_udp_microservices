@@ -3,4 +3,5 @@
 
 CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o
  ../include/KafkaConf.hpp
+ ../include/flatbuffers/TradeEvent_generated.h
  /mnt/d/aeron_udp_service/cpp/src/kafka/consumer.cpp

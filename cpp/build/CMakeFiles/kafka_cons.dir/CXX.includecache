@@ -10,9 +10,15 @@
 cppkafka/cppkafka.h
 -
 
+../include/flatbuffers/TradeEvent_generated.h
+flatbuffers/flatbuffers.h
+../include/flatbuffers/flatbuffers/flatbuffers.h
+
 /mnt/d/aeron_udp_service/cpp/src/kafka/consumer.cpp
 iostream
 -
 KafkaConf.hpp
 /mnt/d/aeron_udp_service/cpp/src/kafka/KafkaConf.hpp
+TradeEvent_generated.h
+/mnt/d/aeron_udp_service/cpp/src/kafka/TradeEvent_generated.h
 
