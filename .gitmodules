@@ -1,3 +1,0 @@
-[submodule "cpp/external/flatbuffers"]
-	path = cpp/external/flatbuffers
-	url = https://github.com/google/flatbuffers.git
