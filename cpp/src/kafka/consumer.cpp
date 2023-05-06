@@ -7,5 +7,4 @@ int main(){
     Consumer consumer(conf.getConsumerConfig());
     std::cout << "kafka consumer " << std::endl;
 
-
 }
