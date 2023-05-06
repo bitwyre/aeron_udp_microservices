@@ -111,9 +111,6 @@ int main()
     
     // AERON_DECL_ALIGNED(buffer_t buffer, 16);
     concurrent::AtomicBuffer srcBuffer(&buffer[0], buffer.size());
-    char message[256];
-    const int messageLen = ::snprintf(message, sizeof(message), "Hello World! %ld");
-    std::cout << messageLen << std::endl;
 
     //store
     srcBuffer.putBytes(0, buffers, size);
