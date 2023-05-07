@@ -79,5 +79,6 @@ CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../external/aeron/aero
 CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../include/AeronConsumer.hpp
 CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../include/configs/AeronConf.hpp
 CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../include/flatbuffers/TradeEvent_generated.h
+CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../include/streamIDmap.hpp
 CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o: ../src/aeron/BasicSubscriber.cpp
 

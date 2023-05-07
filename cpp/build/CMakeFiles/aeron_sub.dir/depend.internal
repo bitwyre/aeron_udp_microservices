@@ -80,4 +80,5 @@ CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.o
  ../include/AeronConsumer.hpp
  ../include/configs/AeronConf.hpp
  ../include/flatbuffers/TradeEvent_generated.h
+ ../include/streamIDmap.hpp
  /mnt/d/aeron_udp_service/cpp/src/aeron/BasicSubscriber.cpp

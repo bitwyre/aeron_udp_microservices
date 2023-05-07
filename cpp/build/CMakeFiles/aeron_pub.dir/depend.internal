@@ -78,4 +78,5 @@ CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o
  ../include/AeronProducer.hpp
  ../include/configs/AeronConf.hpp
  ../include/flatbuffers/TradeEvent_generated.h
+ ../include/streamIDmap.hpp
  /mnt/d/aeron_udp_service/cpp/src/aeron/BasicPublisher.cpp

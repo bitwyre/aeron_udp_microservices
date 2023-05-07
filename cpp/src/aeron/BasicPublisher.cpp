@@ -10,6 +10,7 @@
 #include <flatbuffers/flatbuffers.h>
 #include "AeronConf.hpp"
 #include "AeronProducer.hpp"
+#include "streamIDmap.hpp"
 #include "Aeron.h"
 
 using namespace aeron::util;
@@ -84,7 +85,7 @@ int main()
     int size = builder.GetSize();
 
     // aeron producer
-    AeronProducer trade_event_producer("aeron:udp?endpoint=localhost:20121",3,size);
+    AeronProducer trade_event_producer("aeron:udp?endpoint=localhost:20121",StreamIDMap::TradeEvent,size);
     trade_event_producer.Connect();
 
     // sending over the wire

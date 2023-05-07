@@ -742,6 +742,8 @@ cstdint
 flatbuffers/flatbuffers.h
 ../include/flatbuffers/flatbuffers/flatbuffers.h
 
+../include/streamIDmap.hpp
+
 /mnt/d/aeron_udp_service/cpp/src/aeron/BasicPublisher.cpp
 cstdint
 -
@@ -765,6 +767,8 @@ AeronConf.hpp
 /mnt/d/aeron_udp_service/cpp/src/aeron/AeronConf.hpp
 AeronProducer.hpp
 /mnt/d/aeron_udp_service/cpp/src/aeron/AeronProducer.hpp
+streamIDmap.hpp
+/mnt/d/aeron_udp_service/cpp/src/aeron/streamIDmap.hpp
 Aeron.h
 /mnt/d/aeron_udp_service/cpp/src/aeron/Aeron.h
 

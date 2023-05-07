@@ -9,6 +9,8 @@
 #include "concurrent/SleepingIdleStrategy.h"
 #include "TradeEvent_generated.h"
 #include "AeronConsumer.hpp"
+#include "streamIDmap.hpp"
+
 
 using namespace aeron::util;
 using namespace aeron;
@@ -50,7 +52,7 @@ fragment_handler_t printTradeEvent()
 
 int main(int argc, char **argv)
 {   
-    AeronConsumer trade_event_consumer("aeron:udp?endpoint=localhost:20121",3,printTradeEvent());
+    AeronConsumer trade_event_consumer("aeron:udp?endpoint=localhost:20121",StreamIDMap::TradeEvent,printTradeEvent());
     trade_event_consumer.Connect();
     while(true){
         trade_event_consumer.Poll();

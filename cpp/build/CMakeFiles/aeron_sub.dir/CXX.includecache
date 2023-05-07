@@ -756,6 +756,8 @@ cstdint
 flatbuffers/flatbuffers.h
 ../include/flatbuffers/flatbuffers/flatbuffers.h
 
+../include/streamIDmap.hpp
+
 /mnt/d/aeron_udp_service/cpp/src/aeron/BasicSubscriber.cpp
 cstdint
 -
@@ -777,4 +779,6 @@ TradeEvent_generated.h
 /mnt/d/aeron_udp_service/cpp/src/aeron/TradeEvent_generated.h
 AeronConsumer.hpp
 /mnt/d/aeron_udp_service/cpp/src/aeron/AeronConsumer.hpp
+streamIDmap.hpp
+/mnt/d/aeron_udp_service/cpp/src/aeron/streamIDmap.hpp
 
