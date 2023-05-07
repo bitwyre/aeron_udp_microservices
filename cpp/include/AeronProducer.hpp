@@ -35,6 +35,9 @@ public:
         if (result < 0) {
             std::cerr << "Failed to publish message!" << std::endl;
         }
+        else{
+            std::cerr << "Published Successfully!" << std::endl;
+        }
     }
 
 

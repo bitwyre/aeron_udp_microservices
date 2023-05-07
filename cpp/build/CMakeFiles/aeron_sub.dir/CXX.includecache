@@ -736,6 +736,16 @@ cstdarg
 util/Exceptions.h
 ../external/aeron/aeron-client/src/main/cpp/util/util/Exceptions.h
 
+../include/AeronConsumer.hpp
+string
+-
+vector
+-
+Aeron.h
+../include/Aeron.h
+FragmentAssembler.h
+../include/FragmentAssembler.h
+
 ../include/configs/AeronConf.hpp
 string
 -
@@ -765,4 +775,6 @@ concurrent/SleepingIdleStrategy.h
 /mnt/d/aeron_udp_service/cpp/src/aeron/concurrent/SleepingIdleStrategy.h
 TradeEvent_generated.h
 /mnt/d/aeron_udp_service/cpp/src/aeron/TradeEvent_generated.h
+AeronConsumer.hpp
+/mnt/d/aeron_udp_service/cpp/src/aeron/AeronConsumer.hpp
 

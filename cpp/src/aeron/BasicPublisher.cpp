@@ -16,8 +16,6 @@ using namespace aeron::util;
 using namespace aeron;
 using namespace aeron_udp;
 
-std::array<std::uint8_t, 200000> buffer;
-
 
 int main()
 {
@@ -86,12 +84,12 @@ int main()
     int size = builder.GetSize();
 
     // aeron producer
-    AeronProducer producer("aeron:udp?endpoint=localhost:20121",3,size);
-    producer.Connect();
+    AeronProducer trade_event_producer("aeron:udp?endpoint=localhost:20121",3,size);
+    trade_event_producer.Connect();
 
     // sending over the wire
     while(true){
-        producer.sendMessage(serialized_ptr);
+        trade_event_producer.sendMessage(serialized_ptr);
     }
 
     return 0;
