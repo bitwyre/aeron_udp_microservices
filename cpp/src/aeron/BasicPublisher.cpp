@@ -80,87 +80,19 @@ int main()
         leverage_short
     );
 
-
+    // flatbuffer serialization
     builder.Finish(trade_event);
-    uint8_t* buffers = builder.GetBufferPointer();
+    uint8_t* serialized_ptr = builder.GetBufferPointer();
     int size = builder.GetSize();
 
-    Context context;
-    std::string channel = "aeron:udp?endpoint=localhost:20121";
-    int streamid = 3;
+    // aeron producer
+    AeronProducer producer("aeron:udp?endpoint=localhost:20121",3,size);
+    producer.Connect();
 
-    context.newSubscriptionHandler(
-        [](const std::string &channel, std::int32_t streamId, std::int64_t correlationId)
-        {
-            std::cout << "Subscription: " << channel << " " << correlationId << ":" << streamId << std::endl;
-        });
-
-    context.availableImageHandler(
-        [](Image &image)
-        {
-            std::cout << "Available image correlationId=" << image.correlationId() << " sessionId=" << image.sessionId();
-            std::cout << " at position=" << image.position() << " from " << image.sourceIdentity() << std::endl;
-        });
-
-    context.unavailableImageHandler(
-        [](Image &image)
-        {
-            std::cout << "Unavailable image on correlationId=" << image.correlationId() << " sessionId=" << image.sessionId();
-            std::cout << " at position=" << image.position() << " from " << image.sourceIdentity() << std::endl;
-        });
-
-    std::shared_ptr<Aeron> aeron = Aeron::connect(context);
-    
-    concurrent::AtomicBuffer srcBuffer;
-    srcBuffer.wrap(&buffer[0], buffer.size());
-
-
-    //store
-    srcBuffer.putBytes(0, buffers, size);
-
-    std::int64_t id = aeron->addPublication(channel, 3);
-
-    std::shared_ptr<Publication> publication = aeron->findPublication(id);
-
-    while (!publication)
-    {
-        std::this_thread::yield();
-        publication = aeron->findPublication(id);
-    }
-
+    // sending over the wire
     while(true){
-        const std::int64_t result = publication->offer(srcBuffer, 0, size);
-    
-        if (result > 0)
-        {
-            std::cout << "yay!" << std::endl;
-        }
-        else if (BACK_PRESSURED == result)
-        {
-            std::cout << "Offer failed due to back pressure" << std::endl;
-        }
-        else if (NOT_CONNECTED == result)
-        {
-            std::cout << "Offer failed because publisher is not connected to a subscriber" << std::endl;
-        }
-        else if (ADMIN_ACTION == result)
-        {
-            std::cout << "Offer failed because of an administration action in the system" << std::endl;
-        }
-        else if (PUBLICATION_CLOSED == result)
-        {
-            std::cout << "Offer failed because publication is closed" << std::endl;
-        }
-        else
-        {
-            std::cout << "Offer failed due to unknown reason " << result << std::endl;
-        }
-
-        if (!publication->isConnected())
-        {
-            std::cout << "No active subscribers detected" << std::endl;
-        }
-
+        producer.sendMessage(serialized_ptr);
     }
+
     return 0;
 }

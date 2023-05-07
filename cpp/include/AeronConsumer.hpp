@@ -3,12 +3,13 @@
 #include <string>
 #include <vector>
 #include "Aeron.h"
+#include "FragmentAssembler.h"
 using namespace aeron;
 
 
-class AeronProducer {
+class AeronConsumer {
 public:
-    AeronProducer(const std::string& channel, int streamId, int messageLength) 
+    AeronConsumer(const std::string& channel, int streamId, int messageLength) 
         : channel_(channel), streamId_(streamId), messageLength_(messageLength) 
     {
         buffer_.resize(messageLength_);
@@ -17,21 +18,22 @@ public:
 
     void Connect(){
         aeron_ = Aeron::connect(context);
-        publicationID = aeron_->addPublication(channel_, streamId_);
-        publication_ = aeron_->findPublication(publicationID);
-        
-        while (!publication_)
-        {
-            std::this_thread::yield();
-            publication_ = aeron_->findPublication(publicationID);
-        }
+        subscriptionID = aeron_->addSubscription(channel_, streamId_);
     }
 
-    void sendMessage(const std::uint8_t* ptr) { // pointer to serialized flatbuffer
+    void Poll() { 
+        subscription_ = aeron_->findSubscription(subscriptionID);
+        
+        while (!subscription_)
+        {
+            std::this_thread::yield();
+            subscription_ = aeron_->findSubscription(subscriptionID);
+        }
 
-        srcBuffer_.putBytes(0, ptr, messageLength_);
+        FragmentAssembler fragmentAssembler(printTradeEvent());
+        fragment_handler_t handler = fragmentAssembler.handler();
 
-        const std::int64_t result = publication_->offer(srcBuffer_, 0, messageLength_);
+        const int fragmentsread = subscription_->poll(handler, FRAGMENTS_LIMIT);
         if (result < 0) {
             std::cerr << "Failed to publish message!" << std::endl;
         }
@@ -40,13 +42,14 @@ public:
 
 private:
     Context context;
+    static FRAGMENTS_LIMIT = 10;
     std::string channel_;
     int streamId_;
-    std::int64_t publicationID;
+    std::int64_t subscriptionID;
     int messageLength_;
     std::vector<std::uint8_t> buffer_;
     concurrent::AtomicBuffer srcBuffer_;
     std::shared_ptr<Aeron> aeron_;
-    std::shared_ptr<Publication> publication_;
+    std::shared_ptr<Subscription> subscription_;
     
 };
