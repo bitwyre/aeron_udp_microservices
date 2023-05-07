@@ -1,1 +1,1 @@
-/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o  -o kafka_cons  -Wl,-rpath,/usr/local/lib /usr/local/lib/libcppkafka.so.0.4.0 /usr/local/lib/librdkafka.so -lpthread -lrt -lssl -lcrypto -ldl -lz 
+/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o  -o kafka_cons  -Wl,-rpath,/usr/local/lib /usr/local/lib/libcppkafka.so.0.4.0 /usr/local/lib/librdkafka.so -lpthread -lrt -lssl -lcrypto -ldl -lz 

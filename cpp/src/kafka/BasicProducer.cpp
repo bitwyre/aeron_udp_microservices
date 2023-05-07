@@ -1,26 +1,16 @@
-#include <cstdint>
-#include <cstdio>
-#include <thread>
-#include <array>
-#include <csignal>
-#include <cinttypes>
-
-#include "util/CommandOptionParser.h"
+#include <iostream>
 #include "TradeEvent_generated.h" 
 #include <flatbuffers/flatbuffers.h>
-#include "AeronConf.hpp"
-#include "AeronProducer.hpp"
-#include "streamIDmap.hpp"
-#include "Aeron.h"
+#include "KafkaProducer.hpp"
+#include "KafkaConf.hpp"
+#include <cppkafka/cppkafka.h>
+using namespace cppkafka;
 
-using namespace aeron::util;
-using namespace aeron;
+using cppkafka::Configuration;
 using namespace aeron_udp;
 
+int main(){
 
-int main()
-{
-    // Serialize the data
     flatbuffers::FlatBufferBuilder builder;
 
     // Fill in the data for the TradeEvent
@@ -81,16 +71,21 @@ int main()
     // flatbuffer serialization
     builder.Finish(trade_event);
     uint8_t* serialized_ptr = builder.GetBufferPointer();
-    int size = builder.GetSize();
+    int BufferSize = builder.GetSize();
 
-    // aeron producer
-    AeronProducer trade_event_producer("aeron:udp?endpoint=localhost:20121",StreamIDMap::TradeEvent,size);
-    trade_event_producer.Connect();
+    std::string topic = "btcusdt";
+    KafkaConfig conf;
+    Configuration config = conf.getConsumerConfig(topic);
 
-    // sending over the wire
+    KafkaProducer prod(topic,config);
+    std::string buffer;
+    buffer.assign(serialized_ptr,serialized_ptr+BufferSize);
+    
+    // Producing events
     while(true){
-        trade_event_producer.sendMessage(serialized_ptr);
+        prod.Produce(buffer);
     }
 
-    return 0;
+
+
 }

@@ -159,6 +159,19 @@ aeron_sub/fast:
 .PHONY : aeron_sub/fast
 
 #=============================================================================
+# Target rules for targets named kafka_prod
+
+# Build rule for target.
+kafka_prod: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kafka_prod
+.PHONY : kafka_prod
+
+# fast build rule for target.
+kafka_prod/fast:
+	$(MAKE) -f CMakeFiles/kafka_prod.dir/build.make CMakeFiles/kafka_prod.dir/build
+.PHONY : kafka_prod/fast
+
+#=============================================================================
 # Target rules for targets named aeron_pub
 
 # Build rule for target.
@@ -381,32 +394,59 @@ src/aeron/BasicSubscriber.cpp.s:
 	$(MAKE) -f CMakeFiles/aeron_sub.dir/build.make CMakeFiles/aeron_sub.dir/src/aeron/BasicSubscriber.cpp.s
 .PHONY : src/aeron/BasicSubscriber.cpp.s
 
-src/kafka/consumer.o: src/kafka/consumer.cpp.o
+src/kafka/BasicConsumer.o: src/kafka/BasicConsumer.cpp.o
 
-.PHONY : src/kafka/consumer.o
+.PHONY : src/kafka/BasicConsumer.o
 
 # target to build an object file
-src/kafka/consumer.cpp.o:
-	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o
-.PHONY : src/kafka/consumer.cpp.o
+src/kafka/BasicConsumer.cpp.o:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o
+.PHONY : src/kafka/BasicConsumer.cpp.o
 
-src/kafka/consumer.i: src/kafka/consumer.cpp.i
+src/kafka/BasicConsumer.i: src/kafka/BasicConsumer.cpp.i
 
-.PHONY : src/kafka/consumer.i
+.PHONY : src/kafka/BasicConsumer.i
 
 # target to preprocess a source file
-src/kafka/consumer.cpp.i:
-	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.i
-.PHONY : src/kafka/consumer.cpp.i
+src/kafka/BasicConsumer.cpp.i:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.i
+.PHONY : src/kafka/BasicConsumer.cpp.i
 
-src/kafka/consumer.s: src/kafka/consumer.cpp.s
+src/kafka/BasicConsumer.s: src/kafka/BasicConsumer.cpp.s
 
-.PHONY : src/kafka/consumer.s
+.PHONY : src/kafka/BasicConsumer.s
 
 # target to generate assembly for a file
-src/kafka/consumer.cpp.s:
-	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.s
-.PHONY : src/kafka/consumer.cpp.s
+src/kafka/BasicConsumer.cpp.s:
+	$(MAKE) -f CMakeFiles/kafka_cons.dir/build.make CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.s
+.PHONY : src/kafka/BasicConsumer.cpp.s
+
+src/kafka/BasicProducer.o: src/kafka/BasicProducer.cpp.o
+
+.PHONY : src/kafka/BasicProducer.o
+
+# target to build an object file
+src/kafka/BasicProducer.cpp.o:
+	$(MAKE) -f CMakeFiles/kafka_prod.dir/build.make CMakeFiles/kafka_prod.dir/src/kafka/BasicProducer.cpp.o
+.PHONY : src/kafka/BasicProducer.cpp.o
+
+src/kafka/BasicProducer.i: src/kafka/BasicProducer.cpp.i
+
+.PHONY : src/kafka/BasicProducer.i
+
+# target to preprocess a source file
+src/kafka/BasicProducer.cpp.i:
+	$(MAKE) -f CMakeFiles/kafka_prod.dir/build.make CMakeFiles/kafka_prod.dir/src/kafka/BasicProducer.cpp.i
+.PHONY : src/kafka/BasicProducer.cpp.i
+
+src/kafka/BasicProducer.s: src/kafka/BasicProducer.cpp.s
+
+.PHONY : src/kafka/BasicProducer.s
+
+# target to generate assembly for a file
+src/kafka/BasicProducer.cpp.s:
+	$(MAKE) -f CMakeFiles/kafka_prod.dir/build.make CMakeFiles/kafka_prod.dir/src/kafka/BasicProducer.cpp.s
+.PHONY : src/kafka/BasicProducer.cpp.s
 
 # Help Target
 help:
@@ -420,6 +460,7 @@ help:
 	@echo "... package"
 	@echo "... kafka_cons"
 	@echo "... aeron_sub"
+	@echo "... kafka_prod"
 	@echo "... aeron_pub"
 	@echo "... aeron-all-jar"
 	@echo "... aeron_static"
@@ -439,9 +480,12 @@ help:
 	@echo "... src/aeron/BasicSubscriber.o"
 	@echo "... src/aeron/BasicSubscriber.i"
 	@echo "... src/aeron/BasicSubscriber.s"
-	@echo "... src/kafka/consumer.o"
-	@echo "... src/kafka/consumer.i"
-	@echo "... src/kafka/consumer.s"
+	@echo "... src/kafka/BasicConsumer.o"
+	@echo "... src/kafka/BasicConsumer.i"
+	@echo "... src/kafka/BasicConsumer.s"
+	@echo "... src/kafka/BasicProducer.o"
+	@echo "... src/kafka/BasicProducer.i"
+	@echo "... src/kafka/BasicProducer.s"
 .PHONY : help
 
 

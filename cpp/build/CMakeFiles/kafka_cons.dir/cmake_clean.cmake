@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o"
+  "CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o"
   "kafka_cons"
   "kafka_cons.pdb"
 )

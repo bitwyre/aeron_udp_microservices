@@ -57,27 +57,27 @@ include CMakeFiles/kafka_cons.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/kafka_cons.dir/flags.make
 
-CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o: CMakeFiles/kafka_cons.dir/flags.make
-CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o: ../src/kafka/consumer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o -c /mnt/d/aeron_udp_service/cpp/src/kafka/consumer.cpp
+CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o: CMakeFiles/kafka_cons.dir/flags.make
+CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o: ../src/kafka/BasicConsumer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o -c /mnt/d/aeron_udp_service/cpp/src/kafka/BasicConsumer.cpp
 
-CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/aeron_udp_service/cpp/src/kafka/consumer.cpp > CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.i
+CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/aeron_udp_service/cpp/src/kafka/BasicConsumer.cpp > CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.i
 
-CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/aeron_udp_service/cpp/src/kafka/consumer.cpp -o CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.s
+CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/aeron_udp_service/cpp/src/kafka/BasicConsumer.cpp -o CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.s
 
 # Object files for target kafka_cons
 kafka_cons_OBJECTS = \
-"CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o"
+"CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o"
 
 # External object files for target kafka_cons
 kafka_cons_EXTERNAL_OBJECTS =
 
-kafka_cons: CMakeFiles/kafka_cons.dir/src/kafka/consumer.cpp.o
+kafka_cons: CMakeFiles/kafka_cons.dir/src/kafka/BasicConsumer.cpp.o
 kafka_cons: CMakeFiles/kafka_cons.dir/build.make
 kafka_cons: /usr/local/lib/libcppkafka.so.0.4.0
 kafka_cons: /usr/local/lib/librdkafka.so

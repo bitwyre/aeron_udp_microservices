@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../include/KafkaProducer.hpp
+iostream
+-
+KafkaConf.hpp
+../include/KafkaConf.hpp
+
 ../include/configs/KafkaConf.hpp
 cppkafka/cppkafka.h
 -
@@ -14,11 +20,17 @@ cppkafka/cppkafka.h
 flatbuffers/flatbuffers.h
 ../include/flatbuffers/flatbuffers/flatbuffers.h
 
-/mnt/d/aeron_udp_service/cpp/src/kafka/BasicConsumer.cpp
+/mnt/d/aeron_udp_service/cpp/src/kafka/BasicProducer.cpp
 iostream
 -
-KafkaConf.hpp
-/mnt/d/aeron_udp_service/cpp/src/kafka/KafkaConf.hpp
 TradeEvent_generated.h
 /mnt/d/aeron_udp_service/cpp/src/kafka/TradeEvent_generated.h
+flatbuffers/flatbuffers.h
+-
+KafkaProducer.hpp
+/mnt/d/aeron_udp_service/cpp/src/kafka/KafkaProducer.hpp
+KafkaConf.hpp
+/mnt/d/aeron_udp_service/cpp/src/kafka/KafkaConf.hpp
+cppkafka/cppkafka.h
+-
 

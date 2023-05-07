@@ -92,6 +92,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/kafka_cons.dir/DependInfo.cmake"
   "CMakeFiles/aeron_sub.dir/DependInfo.cmake"
+  "CMakeFiles/kafka_prod.dir/DependInfo.cmake"
   "CMakeFiles/aeron_pub.dir/DependInfo.cmake"
   "external/aeron/CMakeFiles/aeron-all-jar.dir/DependInfo.cmake"
   "external/aeron/aeron-client/src/main/c/CMakeFiles/aeron_static.dir/DependInfo.cmake"

@@ -4,6 +4,7 @@
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/package.dir
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/kafka_cons.dir
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/aeron_sub.dir
+/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/kafka_prod.dir
 /mnt/d/aeron_udp_service/cpp/build/CMakeFiles/aeron_pub.dir
 /mnt/d/aeron_udp_service/cpp/build/src/CMakeFiles/edit_cache.dir
 /mnt/d/aeron_udp_service/cpp/build/src/CMakeFiles/package_source.dir

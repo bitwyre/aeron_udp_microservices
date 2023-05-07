@@ -3,8 +3,14 @@
 #include "TradeEvent_generated.h"
 
 int main(){
-    KafkaConfig conf("btcusdt");
-    Consumer consumer(conf.getConsumerConfig());
+    KafkaConfig conf;
+    Consumer consumer(conf.getConsumerConfig("btcusdt"));
     std::cout << "kafka consumer " << std::endl;
+
+    while(true){
+        
+    }
+
+
 
 }
