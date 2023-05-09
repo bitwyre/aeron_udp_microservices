@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/d/aeron_udp_service/cpp/src/aeron/BasicPublisher.cpp" "/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o"
+  "/mnt/d/aeron_udp_service/cpp/src/aeron/aeronmd.cpp" "/mnt/d/aeron_udp_service/cpp/build/CMakeFiles/aeronmds.dir/src/aeron/aeronmd.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,18 +16,13 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../include"
-  "../include/flatbuffers"
-  "../include/configs"
-  "../external/aeron/aeron-client/src/main/cpp"
   "../external/aeron/aeron-driver/src/main/c"
-  "../external/aeron/aeron-client/src/main/c"
+  "../external/aeron/aeron-client/src/main/cpp"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/mnt/d/aeron_udp_service/cpp/build/external/aeron/aeron-client/src/main/cpp/CMakeFiles/aeron_client.dir/DependInfo.cmake"
-  "/mnt/d/aeron_udp_service/cpp/build/external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

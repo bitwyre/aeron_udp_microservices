@@ -355,6 +355,7 @@ CMakeFiles/kafka_prod.dir/clean:
 
 # All Build rule for target.
 CMakeFiles/aeron_pub.dir/all: external/aeron/aeron-client/src/main/cpp/CMakeFiles/aeron_client.dir/all
+CMakeFiles/aeron_pub.dir/all: external/aeron/aeron-driver/src/main/c/CMakeFiles/aeron_driver.dir/all
 	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/depend
 	$(MAKE) -f CMakeFiles/aeron_pub.dir/build.make CMakeFiles/aeron_pub.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num= "Built target aeron_pub"
@@ -362,7 +363,7 @@ CMakeFiles/aeron_pub.dir/all: external/aeron/aeron-client/src/main/cpp/CMakeFile
 
 # Build rule for subdir invocation for target.
 CMakeFiles/aeron_pub.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 29
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/aeron_pub.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/aeron_udp_service/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/aeron_pub.dir/rule

@@ -1,12 +1,6 @@
 # aeron_udp_microservices
 Aeron UDP microservices
 
-
-### Run Java Media Driver Process
-```
-java -cp external/aeron/aeron-all/build/libs/aeron-all-1.42.0-SNAPSHOT.jar:. RunMediaDriver
-```
-
 ### Build and run Publisher
 
 ```
@@ -25,3 +19,6 @@ make
 ./cons
 ```
 
+# Aeron Latency Test
+
+The mean latency of the Aeron producer to consumer communication using IPC was measured at around 2.4 - 2.5 microseconds, while the mean latency using UDP was measured at around 30-40 microseconds using same machine. 

@@ -81,6 +81,7 @@ aeron_pub: CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o
 aeron_pub: CMakeFiles/aeron_pub.dir/build.make
 aeron_pub: /usr/local/lib/libcppkafka.so.0.4.0
 aeron_pub: external/aeron/lib/libaeron_client.a
+aeron_pub: external/aeron/lib/libaeron_driver.so
 aeron_pub: /usr/local/lib/librdkafka.so
 aeron_pub: CMakeFiles/aeron_pub.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/aeron_udp_service/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable aeron_pub"

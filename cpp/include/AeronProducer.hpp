@@ -11,7 +11,7 @@ public:
     AeronProducer(const std::string& channel, int streamId, int messageLength) 
         : channel_(channel), streamId_(streamId), messageLength_(messageLength) 
     {
-        buffer_.resize(messageLength_);
+        buffer_.resize(messageLength_+20000);
         srcBuffer_.wrap(buffer_.data(), messageLength_);
     }
 

@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/aeronmds.dir/src/aeron/aeronmd.cpp.o  -o aeronmds  external/aeron/lib/libaeron_client.a -lpthread 

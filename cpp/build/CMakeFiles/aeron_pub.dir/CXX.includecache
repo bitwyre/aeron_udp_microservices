@@ -724,6 +724,12 @@ cstdarg
 util/Exceptions.h
 ../external/aeron/aeron-client/src/main/cpp/util/util/Exceptions.h
 
+../external/aeron/aeron-driver/src/main/c/aeronmd.h
+stdbool.h
+-
+stdint.h
+-
+
 ../include/AeronProducer.hpp
 string
 -
@@ -731,6 +737,18 @@ vector
 -
 Aeron.h
 ../include/Aeron.h
+
+../include/EmbeddedAeronMediaDriver.hpp
+string
+-
+thread
+-
+atomic
+-
+stdexcept
+-
+aeronmd.h
+../include/aeronmd.h
 
 ../include/configs/AeronConf.hpp
 string
@@ -750,6 +768,8 @@ cstdint
 cstdio
 -
 thread
+-
+chrono
 -
 array
 -
@@ -771,4 +791,8 @@ streamIDmap.hpp
 /mnt/d/aeron_udp_service/cpp/src/aeron/streamIDmap.hpp
 Aeron.h
 /mnt/d/aeron_udp_service/cpp/src/aeron/Aeron.h
+aeronmd.h
+/mnt/d/aeron_udp_service/cpp/src/aeron/aeronmd.h
+EmbeddedAeronMediaDriver.hpp
+/mnt/d/aeron_udp_service/cpp/src/aeron/EmbeddedAeronMediaDriver.hpp
 

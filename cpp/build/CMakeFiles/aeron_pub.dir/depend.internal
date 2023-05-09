@@ -75,7 +75,9 @@ CMakeFiles/aeron_pub.dir/src/aeron/BasicPublisher.cpp.o
  ../external/aeron/aeron-client/src/main/cpp/util/Platform.h
  ../external/aeron/aeron-client/src/main/cpp/util/ScopeUtils.h
  ../external/aeron/aeron-client/src/main/cpp/util/StringUtil.h
+ ../external/aeron/aeron-driver/src/main/c/aeronmd.h
  ../include/AeronProducer.hpp
+ ../include/EmbeddedAeronMediaDriver.hpp
  ../include/configs/AeronConf.hpp
  ../include/flatbuffers/TradeEvent_generated.h
  ../include/streamIDmap.hpp
