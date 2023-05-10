@@ -1,18 +1,4 @@
-/*
- * Copyright 2020 UT OVERSEAS INC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+include!("my_schema_generated.rs");
 
  use std::{
     ffi::CString,
@@ -33,6 +19,8 @@ use aeron_rs::{
 };
 use lazy_static::lazy_static;
 use nix::NixPath;
+
+use chrono::Local;
 
 lazy_static! {
     pub static ref RUNNING: AtomicBool = AtomicBool::from(true);
@@ -154,15 +142,42 @@ fn main() {
             break;
         }
 
-        let str_msg = format!("Basic publisher msg #{}", i);
+        let current_time = Local::now();
+        let str_msg = format!("Basic publisher msg #{}, timestamp: {}", i, current_time.format("%Y-%m-%d %H:%M:%S"));
         let c_str_msg = CString::new(str_msg).unwrap();
+
+        // Create a FlatBuffer builder
+        let mut builder = flatbuffers::FlatBufferBuilder::new();
+
+        // Create a Person object
+        let id = i;
+        let text = builder.create_string("timestamp test");
+                
+        let message = Message::create(&mut builder, &MessageArgs{ id: id as u64, text: Some(text)});
+        
+        // Finish building the buffer
+        builder.finish(message, None);
+        
+        // Access the serialized data
+        let buf = builder.finished_data();
 
         src_buffer.put_bytes(0, c_str_msg.as_bytes());
 
         println!("offering {}/{}", i + 1, settings.number_of_messages);
         let _unused = stdout().flush();
 
-        let result = publication.lock().unwrap().offer_part(src_buffer, 0, c_str_msg.len() as i32);
+        // Create an `AlignedBuffer` for sending the message
+        let mut buffer = AlignedBuffer::with_capacity(buf.len() as i32);
+
+        //let result = publication.lock().unwrap().offer_part(src_buffer, 0, c_str_msg.len() as i32);
+        let src_buffer = AtomicBuffer::from_aligned(&buffer);
+        let result = publication.lock().unwrap().offer_part(src_buffer, 0, buf.len() as i32);
+
+        // Copy the serialized FlatBuffer bytes into the `AlignedBuffer`
+        //buffer.as_mut_slice().copy_from_slice(buf);
+
+        // Send the message via the Aeron publication
+        //let result = publication.offer(&buffer);
 
         if let Ok(code) = result {
             println!("Sent with code {}!", code);
