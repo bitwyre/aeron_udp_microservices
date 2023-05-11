@@ -1,18 +1,4 @@
-/*
- * Copyright 2020 UT OVERSEAS INC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+include!("my_schema_generated.rs");
 
  use std::{
     ffi::CString,
@@ -34,6 +20,7 @@ use aeron_rs::{
     utils::{errors::AeronError, types::Index},
 };
 use lazy_static::lazy_static;
+use chrono::Local;
 
 lazy_static! {
     pub static ref RUNNING: AtomicBool = AtomicBool::from(true);
@@ -97,13 +84,15 @@ fn on_new_fragment(buffer: &AtomicBuffer, offset: Index, length: Index, header: 
     unsafe {
         let slice_msg = slice::from_raw_parts_mut(buffer.buffer().offset(offset as isize), length as usize);
         let msg = CString::new(slice_msg).unwrap();
+        let current_time = Local::now();
         println!(
-            "Message to stream {} from session {} ({}@{}): <<{}>>",
+            "Message to stream {} from session {} ({}@{}): <<{}>> at timestamp: {}",
             header.stream_id(),
             header.session_id(),
             length,
             offset,
-            msg.to_str().unwrap()
+            msg.to_str().unwrap(),
+            current_time.format("%Y-%m-%d %H:%M:%S")
         );
     }
 }
@@ -170,9 +159,19 @@ fn main() {
     );
 
     let idle_strategy = SleepingIdleStrategy::new(1000);
-
+/**
     while RUNNING.load(Ordering::SeqCst) {
         let fragments_read = subscription.lock().expect("Fu").poll(&mut on_new_fragment, 10);
         idle_strategy.idle_opt(fragments_read);
     }
+    */
+    while let Some(message) = subscription_stream.next().await {
+        let message_bytes = message.fragment();
+        let message = flatbuffers::root_as_message(message_bytes).unwrap();
+        let id = message.id();
+        let text = message.text();
+        // Process the message
+        println!("{}", text);
+    }
+    
 }
