@@ -13,7 +13,7 @@ After clone, run these commands to install aeron repo:
 
 the aeron media driver must be operating for aeron programs to work. this can be done on command line or in the program.
 
-The following instructions are for running the Java Media Driver via command line. There is a media driver for Rust and also C++, but the documentation was lacking. I used java media driver mainly for this example development because it was consistent and easy, but it may suffer performance issues.
+The following instructions are for running the Java Media Driver via command line. There is a media driver for Rust and also C++, but the documentation was lacking. I used java media driver mainly for this example development because it was consistent and easy, but it may suffer performance issues. 
 
     after git submodule update and make sure you have java..
         ./gradlew 
@@ -24,7 +24,7 @@ The following instructions are for running the Java Media Driver via command lin
 For C++, see example provided in first two lines of cpp/src/aeron/basicPublisher. 
 Running basicpublisher.cpp or cpp/src/aeron/mediadriverworkaround will also run C++ media driver.
 
-For Rust, an example is here (https://github.com/UnitedTraders/aeron-rs/blob/master/tests/publish_subscribe.rs) line 229, but i was not able to get it working like this. It basically relies on having an executable (aeronmd) in the directory and runs it.
+For Rust, an example is here (https://github.com/UnitedTraders/aeron-rs/blob/master/tests/publish_subscribe.rs) line 229, but i was not able to get it working like this. It basically relies on having an executable built (aeronmd) in the same directory and uses rust code to execute a command to run aeronmd. However I was not able to find a way to build aeronmd on my machine.
 
 ---
 
