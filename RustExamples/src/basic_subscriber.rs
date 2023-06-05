@@ -1,4 +1,4 @@
-include!("my_schema_generated.rs");
+//include!("my_schema_generated.rs");
 
  use std::{
     ffi::CString,
@@ -159,19 +159,21 @@ fn main() {
     );
 
     let idle_strategy = SleepingIdleStrategy::new(1000);
-/**
+
     while RUNNING.load(Ordering::SeqCst) {
         let fragments_read = subscription.lock().expect("Fu").poll(&mut on_new_fragment, 10);
         idle_strategy.idle_opt(fragments_read);
     }
-    */
-    while let Some(message) = subscription_stream.next().await {
-        let message_bytes = message.fragment();
-        let message = flatbuffers::root_as_message(message_bytes).unwrap();
-        let id = message.id();
-        let text = message.text();
+    
+    //flatbuffer read message.
+    //while let Some(message) = subscription_stream.next().await {
+    //    let message_bytes = message.fragment();
+    //    let message = flatbuffers::root_as_message(message_bytes).unwrap();
+    //    let id = message.id();
+    //    let text = message.text();
         // Process the message
-        println!("{}", text);
-    }
+    //    println!("{}", text);
+    //}
+    
     
 }

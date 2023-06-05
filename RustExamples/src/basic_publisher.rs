@@ -1,4 +1,4 @@
-include!("my_schema_generated.rs");
+//include!("my_schema_generated.rs");
 
  use std::{
     ffi::CString,
@@ -146,6 +146,7 @@ fn main() {
         let str_msg = format!("Basic publisher msg #{}, timestamp: {}", i, current_time.format("%Y-%m-%d %H:%M:%S"));
         let c_str_msg = CString::new(str_msg).unwrap();
 
+        /**
         // Create a FlatBuffer builder
         let mut builder = flatbuffers::FlatBufferBuilder::new();
 
@@ -160,16 +161,19 @@ fn main() {
         
         // Access the serialized data
         let buf = builder.finished_data();
+        **/
 
         src_buffer.put_bytes(0, c_str_msg.as_bytes());
 
         println!("offering {}/{}", i + 1, settings.number_of_messages);
         let _unused = stdout().flush();
 
-        // Create an `AlignedBuffer` for sending the message
+        let result = publication.lock().unwrap().offer_part(src_buffer, 0, c_str_msg.len() as i32);
+
+        /**
+        // Create an `AlignedBuffer` for sending the message with flatbuff
         let mut buffer = AlignedBuffer::with_capacity(buf.len() as i32);
 
-        //let result = publication.lock().unwrap().offer_part(src_buffer, 0, c_str_msg.len() as i32);
         let src_buffer = AtomicBuffer::from_aligned(&buffer);
         let result = publication.lock().unwrap().offer_part(src_buffer, 0, buf.len() as i32);
 
@@ -178,7 +182,7 @@ fn main() {
 
         // Send the message via the Aeron publication
         //let result = publication.offer(&buffer);
-
+        **/
         if let Ok(code) = result {
             println!("Sent with code {}!", code);
         } else {

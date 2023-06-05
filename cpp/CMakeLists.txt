@@ -7,6 +7,7 @@ add_subdirectory(src)
 
 add_subdirectory(external/aeron)
 add_executable(aeron_pub src/aeron/BasicPublisher.cpp)
+add_executable(aeron_work src/aeron/mediadriverworkaround.cpp)
 add_executable(aeron_sub src/aeron/BasicSubscriber.cpp)
 add_executable(kafka_cons src/kafka/BasicConsumer.cpp)
 add_executable(kafka_prod src/kafka/BasicProducer.cpp)

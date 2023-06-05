@@ -36,3 +36,11 @@ path = "./src/basic_publisher.rs"
 [[bin]]
 name = "basic_subscriber"
 path = "./src/basic_subscriber.rs"
+
+[[bin]]
+name = "basic_publisher_flatb"
+path = "./src/basic_publisher_flatb.rs"
+
+[[bin]]
+name = "basic_subscriber_flatb"
+path = "./src/basic_subscriber_flatb.rs"
