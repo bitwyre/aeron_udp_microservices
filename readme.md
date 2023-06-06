@@ -18,6 +18,9 @@ The following instructions are for running the Java Media Driver via command lin
     after git submodule update and make sure you have java..
         ./gradlew 
         $ java -cp aeron-all/build/libs/aeron-all-${VERSION}.jar io.aeron.driver.MediaDriver
+        
+        {VERSION} should be replaced by whichever version was installed (edited) 
+        so you can type out aeron-all/build/libs/aeron-all- and then press tab to autocomplete whichever version it has
 
     See (https://github.com/real-logic/aeron/wiki/Running-Samples)
 
